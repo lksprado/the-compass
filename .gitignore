@@ -1,0 +1,7 @@
+raw/
+errors/
+.env
+__init__.py
+.pytest_cache
+.pytest_cache
+.venv
