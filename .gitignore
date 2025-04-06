@@ -5,3 +5,4 @@ __init__.py
 .pytest_cache
 .pytest_cache
 .venv
+*.csv

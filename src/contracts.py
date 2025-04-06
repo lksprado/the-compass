@@ -1,6 +1,7 @@
 import pandera as pa
 from pandera.typing import Series
 from pandera import DataFrameModel
+from typing import Optional
 
 
 VALID_UFS = {
@@ -12,19 +13,39 @@ class Railway(DataFrameModel):
     mes_ano: Series[pa.DateTime]
     ferrovia: Series[str]
     mercadoria_antt: Series[str]
+    mercadoria_en: Series[str]
     estacao_origem: Series[str]
     uf_origem: Series[str]
     uf_destino: Series[str]
     tu: Series[int] = pa.Field(gt=0)
     tku: Series[int] = pa.Field(gt=0)
-    estimated_distance_km: Series[float] = pa.Field(gt=0)
+    estimated_distance_km: Series[int] = pa.Field(gt=0)
 
     class Config:
         strict = True
         coerce = True
+        drop_invalid_rows=True
 
     @pa.check("uf_origem", name="Checagem código UF na origem")
     def check_uf_origem(cls, s: Series[str]): return s.isin(VALID_UFS)
     
     @pa.check("uf_destino", name="Checagem código UF no destino")
     def check_uf_origem(cls, s: Series[str]): return s.isin(VALID_UFS)
+
+
+class Toll(DataFrameModel):
+    mes_ano: Series[pa.DateTime]
+    concessionaria: Series[str]
+    sentido: Series[str]
+    praca: Series[str]
+    tipo_cobranca: Optional[Series[str]] = pa.Field(nullable=True)
+    categoria: Series[str]
+    tipo_de_veiculo: Series[str]
+    volume_total: Series[int] = pa.Field(gt=0)
+    
+    
+
+    class Config:
+        strict = True
+        coerce = True
+        drop_invalid_rows=True
