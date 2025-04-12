@@ -188,6 +188,19 @@ wheels = [
 ]
 
 [[package]]
+name = "ipeadatapy"
+version = "0.1.9"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pandas" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8d/dd/48dbf8d7b2c21613db96d2474a589ff65170b15c24f800202a18fe28fd32/ipeadatapy-0.1.9.tar.gz", hash = "sha256:396c3f7d723a70667fd5a64714d7252f7f234c34c9f63e77751b02123691d8ad", size = 7478 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f6/2c/8b36052b6e4e884cbdab7bb71c99cde4010a3fb1cbf047524deaf60db656/ipeadatapy-0.1.9-py3-none-any.whl", hash = "sha256:0bfd5a180599f77106421477d3cc505e4478ac0f4e3d5eb688dd8696fce906e3", size = 10120 },
+]
+
+[[package]]
 name = "mypy-extensions"
 version = "1.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -430,6 +443,15 @@ wheels = [
 ]
 
 [[package]]
+name = "python-dotenv"
+version = "1.1.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/88/2c/7bb1416c5620485aa793f2de31d3df393d3686aa8a8506d11e10e13c5baf/python_dotenv-1.1.0.tar.gz", hash = "sha256:41f90bc6f5f177fb41f53e87666db362025010eb28f60a01c9143bfa33a2b2d5", size = 39920 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1e/18/98a99ad95133c6a6e2005fe89faedf294a748bd5dc803008059409ac9b1e/python_dotenv-1.1.0-py3-none-any.whl", hash = "sha256:d7c01d9e2293916c18baf562d95698754b0dbbb5e74d457c45d4f6561fb9d55d", size = 20256 },
+]
+
+[[package]]
 name = "pytz"
 version = "2025.2"
 source = { registry = "https://pypi.org/simple" }
@@ -513,10 +535,12 @@ source = { virtual = "." }
 dependencies = [
     { name = "brotli" },
     { name = "bs4" },
+    { name = "ipeadatapy" },
     { name = "openpyxl" },
     { name = "pandas" },
     { name = "pandera" },
     { name = "pytest" },
+    { name = "python-dotenv" },
     { name = "requests" },
     { name = "selenium" },
 ]
@@ -525,10 +549,12 @@ dependencies = [
 requires-dist = [
     { name = "brotli", specifier = ">=1.1.0" },
     { name = "bs4", specifier = ">=0.0.2" },
+    { name = "ipeadatapy", specifier = ">=0.1.9" },
     { name = "openpyxl", specifier = ">=3.1.5" },
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "pandera", specifier = ">=0.23.1" },
     { name = "pytest", specifier = ">=8.3.5" },
+    { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "requests", specifier = ">=2.32.3" },
     { name = "selenium", specifier = ">=4.31.0" },
 ]
