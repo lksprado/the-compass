@@ -20,8 +20,7 @@ class MeuGov():
         'accept': 'application/json',
         'chave-api-dados-abertos': self.token
         }
-        
-        
+
     def get_json(self, output_path):
         url = self.url
         headers = self.headers
@@ -42,11 +41,11 @@ class MeuGov():
 if __name__ == '__main__':
     railway_url = 'https://dados.antt.gov.br/dataset/438a5184-09db-49a3-88c8-0bad418b4409/resource/fecf6b19-6e91-42d1-baf0-ee64b8a5d246/download/producao_origem_destino_2025.json'
     railways = MeuGov(railway_url)
-    railways.get_json('data/raw/antt_ferrovias/')
+    railways.get_json('data/raw/raw_meugov/antt_ferrovias/')
     
     tolls_url = 'https://dados.antt.gov.br/dataset/5bf70ec3-b24e-4f73-99a0-78b200f5e915/resource/8a216ae6-0173-4752-a946-8fae35f9cde7/download/volume-trafego-praca-pedagio-2025.json'
     tolls = MeuGov(tolls_url)
-    tolls.get_json('data/raw/antt_pedagio/')
+    tolls.get_json('data/raw/raw_meugov/antt_pedagio/')
 
 
 # https://dados.gov.br/swagger-ui/index.html#/Conjuntos%20de%20dados/detalhar_2

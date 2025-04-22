@@ -36,10 +36,8 @@ class Railway(DataFrameModel):
 class Toll(DataFrameModel):
     mes_ano: Series[pa.DateTime]
     concessionaria: Series[str]
-    sentido: Series[str]
     praca: Series[str]
     tipo_cobranca: Optional[Series[str]] = pa.Field(nullable=True)
-    categoria: Series[str]
     tipo_de_veiculo: Series[str]
     volume_total: Series[int] = pa.Field(gt=0)
     

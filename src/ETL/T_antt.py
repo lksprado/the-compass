@@ -33,7 +33,7 @@ def make_railway_df(dataframe: pd.DataFrame):
     return df 
 
 def run_railway():
-    input_path = 'data/raw/antt_ferrovias'
+    input_path = 'data/raw/raw_meugov/antt_ferrovias'
     output_path = 'data/processed/antt_ferrovias'  
     error_path = 'data/processed/errors'
     
@@ -84,6 +84,7 @@ def toll_parser(file:str) -> pd.DataFrame:
     df.columns = df.columns.str.lower()
     cols_to_rename = {old: new for old, new in tolls_columns.items() if old in df.columns}
     df = df.rename(columns=cols_to_rename)
+    print(f"{file} --- Json Processed")
     return df 
 
 def make_toll_df(dataframe: pd.DataFrame):
@@ -92,16 +93,16 @@ def make_toll_df(dataframe: pd.DataFrame):
         df['mes_ano'] = pd.to_datetime(df['mes_ano'], format='%Y-%m-%d').dt.date
     except:
         df['mes_ano'] = pd.to_datetime(df['mes_ano'], format='%d-%m-%Y').dt.date
-    for col in ['concessionaria', 'sentido', 'praca', 'tipo_cobranca', 'categoria', 'tipo_de_veiculo']:
-        if col in df.columns:
+    for col in ['concessionaria', 'praca', 'tipo_cobranca', 'tipo_de_veiculo']:
             df[col] = df[col].str.lower()
-    df['volume_total'] = pd.to_numeric(df['volume_total'], errors='coerce')  # vira float
-    df['volume_total'] = df['volume_total'].round().astype('Int64')  # arredonda e vira Int64 (nullable)
+    df['volume_total'] = pd.to_numeric(df['volume_total'], errors='coerce')
+    df['volume_total'] = df['volume_total'].round().astype('Int64') 
+    df = df[['concessionaria', 'mes_ano','praca','tipo_cobranca','tipo_de_veiculo','volume_total']]
+    print("DF OK")
     return df 
 
-
 def run_toll():
-    input_path = 'data/raw/antt_pedagio'
+    input_path = 'data/raw/raw_meugov/antt_pedagio'
     output_path = 'data/processed/antt_pedagio'  
     error_path = 'data/processed/errors'
     
@@ -142,7 +143,8 @@ def run_toll():
             print(f"{file}: Erro inesperado: {e}")
             shutil.copyfile(file_name, os.path.join(error_path, file))
             continue
-
+    
+    df = df.drop_duplicates()
     # Concatena tudo e salva
     if ls:
         final_df = pd.concat(ls, ignore_index=True)
