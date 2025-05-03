@@ -1,8 +1,9 @@
 import requests 
 import json 
+from datetime import date
 
 def bitcoin():
-    url = 'https://investidor10.com.br/api/criptomoedas/cotacoes/1/3650/dollar'
+    url = 'https://investidor10.com.br/api/criptomoedas/cotacoes/1/30/dollar'
     headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
     'Accept': 'application/json',
@@ -12,7 +13,8 @@ def bitcoin():
     }
     response = requests.get(url, headers=headers)
     data = response.json() 
-    with open('data/raw/bitcoin/fist_load.json','w') as f:
+    extraction_date = date.today().strftime("%Y-%m-%d")
+    with open(f'data/raw/raw_bitcoin/bitcoin_{extraction_date}.json','w') as f:
         json.dump(data,f,indent=4)
     
     

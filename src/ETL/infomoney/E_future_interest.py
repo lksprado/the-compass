@@ -17,7 +17,7 @@ def get_nonce_with_selenium():
     # Configurar opções do Chrome
     chrome_options = Options()
     chrome_options.add_argument("--disable-notifications")
-    # chrome_options.add_argument("--headless")  # Remova para depurar
+    chrome_options.add_argument("--headless")  # Remova para depurar
 
     service = Service(chromedriver_path)
     driver = webdriver.Chrome(service=service, options=chrome_options)
