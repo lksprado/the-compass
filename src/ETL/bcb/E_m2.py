@@ -1,7 +1,7 @@
 import requests
 import os
 
-def download_csv():
+def download_m2_csv():
     url = "https://www3.bcb.gov.br/sgspub/consultarvalores/consultarValoresSeries.do?method=downLoad"
     
     # String de cookies
@@ -30,6 +30,3 @@ def download_csv():
         file.write(response.content)
     
     print(f"Arquivo baixado e salvo em: {os.path.abspath(save_path)}")
-
-if __name__ == '__main__':
-    download_csv()

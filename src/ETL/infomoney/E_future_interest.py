@@ -90,7 +90,7 @@ def get_json_data(nonce):
         print(f"Erro ao parsear JSON: {e}")
         return None
 
-if __name__ == '__main__':
+def run_interest():
     nonce = get_nonce_with_selenium()
     if nonce:
         json_data = get_json_data(nonce)

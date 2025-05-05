@@ -38,7 +38,7 @@ class MeuGov():
         except Exception as e :
             logger.error(e)
 
-if __name__ == '__main__':
+def run_antt_extraction():
     railway_url = 'https://dados.antt.gov.br/dataset/438a5184-09db-49a3-88c8-0bad418b4409/resource/fecf6b19-6e91-42d1-baf0-ee64b8a5d246/download/producao_origem_destino_2025.json'
     railways = MeuGov(railway_url)
     railways.get_json('data/raw/raw_meugov/antt_ferrovias/')
