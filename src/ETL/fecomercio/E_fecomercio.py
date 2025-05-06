@@ -6,10 +6,16 @@ import time
 import os
 import subprocess
 import zipfile
-import sys 
 import shutil 
 import requests 
-import json 
+import logging
+
+logging.basicConfig(
+    level=logging.ERROR,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler("logs/E_fecomercio.log"), logging.StreamHandler()],
+)
+logger = logging.getLogger(__name__)
 
 CHROMEDRIVER_DIR = "/home/lucas/.cache/selenium/chromedriver/linux64"
 CHROMEDRIVER_PATH = os.path.join(CHROMEDRIVER_DIR, "chromedriver")
@@ -56,20 +62,17 @@ def check_versions(local:int,release:tuple):
 
 
 def get_indices(urls:list):
-    # Configurar o caminho do chromedriver
     chromedriver_path = r"/home/lucas/.cache/selenium/chromedriver/linux64/chromedriver"
 
-    # Configurar o diretório de download
     download_dir = "/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio"
     if not os.path.exists(download_dir):
         os.makedirs(download_dir)
 
-    # Configurar opções do Chrome
     chrome_options = Options()
-    chrome_options.add_argument("--headless")  # Ativar modo headless
-    chrome_options.add_argument("--disable-gpu")  # Necessário em alguns sistemas para headless
-    chrome_options.add_argument("--no-sandbox")  # Recomendado para Linux em headless
-    chrome_options.add_argument("--disable-dev-shm-usage")  # Evita problemas em sistemas com pouca memória compartilhada
+    chrome_options.add_argument("--headless")  
+    chrome_options.add_argument("--disable-gpu")  
+    chrome_options.add_argument("--no-sandbox")  
+    chrome_options.add_argument("--disable-dev-shm-usage") 
 
     prefs = {
         "download.default_directory": download_dir,
@@ -80,48 +83,40 @@ def get_indices(urls:list):
     chrome_options.add_experimental_option("prefs", prefs)
     service = Service(chromedriver_path)
 
-    # Iniciar o navegador
     driver = webdriver.Chrome(service=service, options=chrome_options)  # Passar chrome_options
     
     for url in urls:
         try:
-            # Acessar a URL
+            print(f"Requesting {url}...")
             driver.get(url)
-            
-            # Aguardar a página carregar
             time.sleep(3)
-            
-            # Encontrar o elemento de download (genérico para class="download")
             download_link = driver.find_element(
                 By.XPATH, 
                 "//a[contains(@class, 'download')]"
             )
             
-            # Obter o nome do arquivo do href para referência
             file_url = download_link.get_attribute("href")
-            file_name = file_url.split("/")[-1]  # Pega o nome do arquivo do URL
+            file_name = file_url.split("/")[-1]  
             
-            # Clicar no link para iniciar o download
             download_link.click()
             
-            # Aguardar o download completar
-            timeout = 10  # Tempo máximo de espera em segundos
+            timeout = 10  
             start_time = time.time()
             while time.time() - start_time < timeout:
                 if any(f.endswith(".xlsx") for f in os.listdir(download_dir)):
-                    print(f"Download concluído {file_name}")
+                    print(f"Data retrieved succesfuly! {file_name}")
                     break
                 time.sleep(1)
             else:
-                print("Tempo de espera esgotado. O download pode não ter sido concluído.")
+                print("Wait timing expired. Download couldn't be finished, increase timeout.")
 
         except Exception as e:
             print(f"Ocorreu um erro: {str(e)}")
 
     driver.quit()
-    print("Done!")
 
-def run():
+def run_fecomercio_extracts():
+    print("Running Fecomercio extracts")
     local_version = get_local_chrome_version()
     release_version = get_latest_release_version()
     check_versions(local_version,release_version)
@@ -144,6 +139,8 @@ def run():
         # 'https://www.fecomercio.com.br/pesquisas/indice/ftn' # Desatualizado
     ]
     get_indices(urls)
-
+    print("Fecomercio extracts done!")
+    print("_"*20)
+    
 if __name__ == '__main__':
-    run()
+    run_fecomercio_extracts()
