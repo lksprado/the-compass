@@ -46,8 +46,6 @@ def get_nonce_with_selenium():
     
     if not nonce:
         logger.error("Nonce não encontrado no toolData.")
-    else:
-        logger.error(f"Nonce encontrado: {nonce}")
     
     return nonce
 

@@ -115,7 +115,7 @@ def get_indices(urls:list):
 
     driver.quit()
 
-def run_fecomercio_extracts():
+def run_fecomercio_extractions():
     print("Running Fecomercio extracts")
     local_version = get_local_chrome_version()
     release_version = get_latest_release_version()
@@ -141,6 +141,3 @@ def run_fecomercio_extracts():
     get_indices(urls)
     print("Fecomercio extracts done!")
     print("_"*20)
-    
-if __name__ == '__main__':
-    run_fecomercio_extracts()

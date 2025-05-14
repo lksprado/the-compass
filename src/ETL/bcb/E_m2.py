@@ -10,7 +10,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def run_m2_extract():
+def run_m2_extraction():
     save_dir = 'data/raw/raw_monetary/'
     save_path = os.path.join(save_dir, 'm2_supply.csv')
     os.makedirs(save_dir, exist_ok=True)
@@ -34,3 +34,6 @@ def run_m2_extract():
     except requests.exceptions.RequestException as err :
         print("Error, check log for details")
         logger.error(err)
+
+if __name__ == '__main__':
+    run_m2_extraction()

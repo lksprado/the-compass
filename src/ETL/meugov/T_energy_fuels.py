@@ -22,12 +22,12 @@ def energy_parser(sheet,output_name, file_path, output_path):
     df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
     return df 
 
-if __name__ == '__main__':
-    # input = 'data/raw/fuel/precos_combustiveis.xlsx'
-    # output = 'data/processed/energy'
-    # fuel_parser(input,output)
+def run_energy_fuel_transformations():
+    input = 'data/raw/raw_meugov/fuel/mensal-brasil-desde-jan2013.xlsx'
+    output = 'data/processed/energy'
+    fuel_parser(input,output)
     
-    energy_input = 'data/raw/energy/Dados_abertos_Consumo_Mensal.xlsx'
+    energy_input = 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
     energy_output = 'data/processed/energy'
     
     energy_parser('SETOR INDUSTRIAL POR UF','consumo_setor_industrial_uf',energy_input,energy_output)

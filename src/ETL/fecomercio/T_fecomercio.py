@@ -36,6 +36,7 @@ def indice_confianca_consumidor():
             file_path = os.path.join(folder, file)
             break
     df = pd.read_excel(file_path,header=1, sheet_name='SÉRIE')
+    df.columns = [col.strip() for col in df.columns]
     df.to_csv('data/processed/fecomercio/indice_confianca_consumidor.csv',index=False, sep=';')
 
 def indice_endividamento_inadimplencia():
@@ -115,10 +116,12 @@ def pesquisa_conjuntural_comercio_varejista():
         if file.endswith('.xlsx'):
             file_path = os.path.join(folder, file)
             break
-    df = pd.read_excel(file_path,header=15)
+    df = pd.read_excel(file_path,header=1, sheet_name='Série Histórica - Estado SP')
+    df = df.iloc[:-4]
     df = df.melt(id_vars=[df.columns[0]], var_name='mes', value_name='valor')
     df = df.rename(columns={df.columns[0]: 'comercio'})
     df['mes'] = pd.to_datetime(df['mes'], errors='coerce').dt.date
+    df = df.pivot(index='mes', columns='comercio', values='valor').reset_index()
     df.to_csv('data/processed/fecomercio/pesquisa_conjuntural_comercio_varejista.csv',index=False, sep=';')
     
     return df 
@@ -145,7 +148,7 @@ def indice_preco_varejo():
             break
     df = pd.read_excel(file_path,header=1, sheet_name='Série Histórica')
     df = df.iloc[:-3]
-    df = df.melt(id_vars=[df.columns[0]], var_name='mes', value_name='custo_de_vida')
+    df = df.melt(id_vars=[df.columns[0]], var_name='mes', value_name='ipv')
     df = df.drop(df.columns[0],axis=1)
     df['mes'] = pd.to_datetime(df['mes'], errors='coerce').dt.date
     df.to_csv('data/processed/fecomercio/indice_preco_varejo.csv',index=False, sep=';')
@@ -167,7 +170,7 @@ def indice_preco_servicos():
     df.to_csv('data/processed/fecomercio/indice_preco_servicos.csv',index=False,sep=';')
     return df
 
-def run():
+def run_fecormecio_transformations():
     file_mover()
     indice_confianca_consumidor()
     indice_endividamento_inadimplencia()
@@ -178,6 +181,3 @@ def run():
     indice_custo_vida()
     indice_preco_varejo()
     indice_preco_servicos()
-
-if __name__ == '__main__':
-    run()

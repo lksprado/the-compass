@@ -1,10 +1,11 @@
 import json 
 import pandas as pd
-import os 
+import os
+
 import shutil
 import pandera as pa
-from contracts import Railway, Toll
-from column_mapping.antt import traducao_mercadorias, tolls_columns
+from src.contracts import Railway, Toll
+from src.column_mapping.antt import traducao_mercadorias, tolls_columns
 
 def railway_parser(file:str) -> pd.DataFrame:
     with open(file, 'r', encoding='utf-8') as f:
@@ -154,6 +155,6 @@ def run_toll():
         print("Nenhum dado válido encontrado.")
 
 
-if __name__ == '__main__':
-    # run_railway()
+def run_antt_transformations():
+    run_railway()
     run_toll()
