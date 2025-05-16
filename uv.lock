@@ -1097,6 +1097,8 @@ dependencies = [
     { name = "requests" },
     { name = "selenium" },
     { name = "setuptools" },
+    { name = "unicode" },
+    { name = "unidecode" },
     { name = "ydata-profiling" },
 ]
 
@@ -1115,6 +1117,8 @@ requires-dist = [
     { name = "requests", specifier = ">=2.32.3" },
     { name = "selenium", specifier = ">=4.31.0" },
     { name = "setuptools", specifier = ">=78.1.0" },
+    { name = "unicode", specifier = ">=2.9" },
+    { name = "unidecode", specifier = ">=1.4.0" },
     { name = "ydata-profiling", specifier = ">=4.16.1" },
 ]
 
@@ -1214,6 +1218,24 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/95/32/1a225d6164441be760d75c2c42e2780dc0873fe382da3e98a2e1e48361e5/tzdata-2025.2.tar.gz", hash = "sha256:b60a638fcc0daffadf82fe0f57e53d06bdec2f36c4df66280ae79bce6bd6f2b9", size = 196380 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/5c/23/c7abc0ca0a1526a0774eca151daeb8de62ec457e77262b66b359c3c7679e/tzdata-2025.2-py2.py3-none-any.whl", hash = "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8", size = 347839 },
+]
+
+[[package]]
+name = "unicode"
+version = "2.9"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a1/9d/ded8876eb5d8bed3e940943a984965b23e6158e10e1bdfd75d0a16ef2bec/unicode-2.9.tar.gz", hash = "sha256:42b6c3b953dce84a25bc9e5d11942c7d34b4d70d8e2d54b455c074770eb753b2", size = 18766 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8f/52/07116342a6803c1d292ce66fa9ea481e39c92b692f0a75341254072b0366/unicode-2.9-py2.py3-none-any.whl", hash = "sha256:39d67799f4795823122192a1f8dd58d476bf8b80c863fb7d530ad990dd2ebc9a", size = 14267 },
+]
+
+[[package]]
+name = "unidecode"
+version = "1.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/94/7d/a8a765761bbc0c836e397a2e48d498305a865b70a8600fd7a942e85dcf63/Unidecode-1.4.0.tar.gz", hash = "sha256:ce35985008338b676573023acc382d62c264f307c8f7963733405add37ea2b23", size = 200149 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8f/b7/559f59d57d18b44c6d1250d2eeaa676e028b9c527431f5d0736478a73ba1/Unidecode-1.4.0-py3-none-any.whl", hash = "sha256:c3c7606c27503ad8d501270406e345ddb480a7b5f38827eafe4fa82a137f0021", size = 235837 },
 ]
 
 [[package]]

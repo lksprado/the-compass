@@ -1,0 +1,72 @@
+2025-05-16 16:50:22,633 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 16:57:54,407 - INFO - iestoques dataframe converted to csv succesfuly
+2025-05-16 17:01:53,668 - INFO - PCCV dataframe converted to csv succesfuly
+2025-05-16 17:02:07,328 - INFO - CVCS dataframe converted to csv succesfuly
+2025-05-16 17:02:57,064 - INFO - IPV dataframe converted to csv succesfuly
+2025-05-16 17:03:08,651 - INFO - IPS dataframe converted to csv succesfuly
+2025-05-16 17:18:41,709 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/icc/icc_link_download_202504.xlsx --- 'Index' object has no attribute 'strip'
+2025-05-16 17:19:07,291 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-16 17:20:28,998 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-16 17:21:11,947 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-16 17:26:57,035 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 17:29:45,853 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/peic/peic_link_download_202503.xlsx --- "['endividadas1', 'contas_em_atraso1', 'nao_terao_condicoesde_pagar1'] not found in axis"
+2025-05-16 17:32:22,973 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-16 17:34:59,698 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/peic/peic_link_download_202503.xlsx --- "['endividadas1', 'contas_em_atraso1', 'nao_terao_condicoesde_pagar1'] not found in axis"
+2025-05-16 17:36:28,363 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 17:36:32,583 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 17:36:40,549 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 17:37:24,844 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 17:37:47,700 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 17:38:20,243 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 17:38:47,505 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 17:42:02,588 - INFO - ICEC dataframe converted to csv succesfuly
+2025-05-16 18:22:01,886 - INFO - iestoques dataframe converted to csv succesfuly
+2025-05-16 18:22:22,717 - INFO - ECSP dataframe converted to csv succesfuly
+2025-05-16 18:34:41,067 - INFO - PCCV dataframe converted to csv succesfuly
+2025-05-16 18:35:37,475 - INFO - CVCS dataframe converted to csv succesfuly
+2025-05-16 18:43:59,994 - INFO - IPV dataframe converted to csv succesfuly
+2025-05-16 18:44:31,284 - INFO - Data retrieved succesfuly! icc_link_download_202504.xlsx
+2025-05-16 18:44:31,285 - INFO - --------------------------------------------------
+2025-05-16 18:44:35,406 - INFO - Data retrieved succesfuly! peic_link_download_202503.xlsx
+2025-05-16 18:44:35,407 - INFO - --------------------------------------------------
+2025-05-16 18:44:39,484 - INFO - Data retrieved succesfuly! icec_link_download_202504.xlsx
+2025-05-16 18:44:39,484 - INFO - --------------------------------------------------
+2025-05-16 18:44:43,364 - INFO - Data retrieved succesfuly! estoques_link_download_202504.xlsx
+2025-05-16 18:44:43,364 - INFO - --------------------------------------------------
+2025-05-16 18:44:47,163 - INFO - Data retrieved succesfuly! iec_link_download_202504.xlsx
+2025-05-16 18:44:47,163 - INFO - --------------------------------------------------
+2025-05-16 18:44:51,146 - INFO - Data retrieved succesfuly! pccv_link_download_02_2025.xlsx
+2025-05-16 18:44:51,147 - INFO - --------------------------------------------------
+2025-05-16 18:44:54,983 - INFO - Data retrieved succesfuly! cvcs_link_download_mar25.xlsx
+2025-05-16 18:44:54,983 - INFO - --------------------------------------------------
+2025-05-16 18:44:58,908 - INFO - Data retrieved succesfuly! ipv_link_download_mar25.xlsx
+2025-05-16 18:44:58,908 - INFO - --------------------------------------------------
+2025-05-16 18:45:02,921 - INFO - Data retrieved succesfuly! ips_link_download_mar25.xlsx
+2025-05-16 18:45:02,921 - INFO - --------------------------------------------------
+2025-05-16 18:45:03,151 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-16 18:45:03,187 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 18:45:03,331 - INFO - ICEC dataframe converted to csv succesfuly
+2025-05-16 18:45:03,360 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/iestoques/estoques_link_download_202504.xlsx --- DataFrame.rename() got an unexpected keyword argument 'colums'
+2025-05-16 18:45:03,391 - INFO - ECSP dataframe converted to csv succesfuly
+2025-05-16 18:45:03,438 - INFO - PCCV dataframe converted to csv succesfuly
+2025-05-16 18:45:03,462 - INFO - CVCS dataframe converted to csv succesfuly
+2025-05-16 18:45:03,492 - INFO - IPV dataframe converted to csv succesfuly
+2025-05-16 18:45:03,520 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/ips/ips_link_download_fev25.xlsx --- 'ips'
+2025-05-16 18:46:44,926 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-16 18:46:44,960 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 18:46:45,107 - INFO - ICEC dataframe converted to csv succesfuly
+2025-05-16 18:46:45,141 - INFO - iestoques dataframe converted to csv succesfuly
+2025-05-16 18:46:45,170 - INFO - ECSP dataframe converted to csv succesfuly
+2025-05-16 18:46:45,214 - INFO - PCCV dataframe converted to csv succesfuly
+2025-05-16 18:46:45,240 - INFO - CVCS dataframe converted to csv succesfuly
+2025-05-16 18:46:45,270 - INFO - IPV dataframe converted to csv succesfuly
+2025-05-16 18:46:45,300 - INFO - IPS dataframe converted to csv succesfuly
+2025-05-16 18:47:57,121 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-16 18:47:57,156 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-16 18:47:57,296 - INFO - ICEC dataframe converted to csv succesfuly
+2025-05-16 18:47:57,323 - INFO - iestoques dataframe converted to csv succesfuly
+2025-05-16 18:47:57,355 - INFO - ECSP dataframe converted to csv succesfuly
+2025-05-16 18:47:57,396 - INFO - PCCV dataframe converted to csv succesfuly
+2025-05-16 18:47:57,421 - INFO - CVCS dataframe converted to csv succesfuly
+2025-05-16 18:47:57,449 - INFO - IPV dataframe converted to csv succesfuly
+2025-05-16 18:47:57,479 - INFO - IPS dataframe converted to csv succesfuly

@@ -9,7 +9,6 @@ from src.ETL.investidor_10.E_bitcoin import run_bitcoin_extracts
 from src.ETL.infomoney.E_future_interest import run_future_interest_extractions
 from src.ETL.bcb.E_m2 import run_m2_extraction
 from src.ETL.fecomercio.E_fecomercio import run_fecomercio_extractions
-
 from src.ETL.meugov.T_antt import run_antt_transformations
 from src.ETL.meugov.T_energy_fuels import run_energy_fuel_transformations
 from src.ETL.investidor_10.T_bitcoin import run_bitcoin_transformations
@@ -120,17 +119,6 @@ def gather_all():
         df = df.rename(columns={'custo_de_vida':'indice_cvcs_custo_de_vida'})
         return df 
     
-    def indice_confianca_consumidor():
-        df = pd.read_csv('/media/lucas/Files/2.Projetos/the-compass/data/processed/fecomercio/indice_confianca_consumidor.csv', sep=';')
-        df = df[['Mês','ICC', 'ICC + de 10 SM', 'ICEA', 'ICEA + de 10 SM']]
-        df = df.rename(columns={'Mês':'mes', 
-                                'ICC':'indice_icc_confianca_consumidor',
-                                'ICC + de 10 SM':'indice_icc_confianca_consumidor_acima_10_sm',
-                                'ICEA':'indice_icea_condicoes_economicas_atuais',
-                                'ICEA + de 10 SM':'indice_icea_condicoes_economicas_atuais_acima_10_sm'
-                                })
-        return df 
-
     def indice_confianca_empresario_comercial():
         df = pd.read_csv('/media/lucas/Files/2.Projetos/the-compass/data/processed/fecomercio/indice_confianca_empresario_comercial.csv', sep=';')
         df = df[['mes','Situação Adequada (%)']]

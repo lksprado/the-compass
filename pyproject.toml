@@ -18,5 +18,7 @@ dependencies = [
     "requests>=2.32.3",
     "selenium>=4.31.0",
     "setuptools>=78.1.0",
+    "unicode>=2.9",
+    "unidecode>=1.4.0",
     "ydata-profiling>=4.16.1",
 ]

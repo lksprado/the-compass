@@ -2,32 +2,29 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from utils.logger import get_logger
 import time
 import os
 import subprocess
 import zipfile
 import shutil 
 import requests 
-import logging
 
-logging.basicConfig(
-    level=logging.ERROR,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("logs/E_fecomercio.log"), logging.StreamHandler()],
-)
-logger = logging.getLogger(__name__)
+
+logger = get_logger(__name__)
 
 CHROMEDRIVER_DIR = "/home/lucas/.cache/selenium/chromedriver/linux64"
 CHROMEDRIVER_PATH = os.path.join(CHROMEDRIVER_DIR, "chromedriver")
 
 def get_local_chrome_version():
-    """VERIFICA QUAL VERSAO DO GOOGLE CHROME ATUAL ATRAVES DO RETORNO EM LISTA DA VERSAO E DEFINIDA PELA VERSAO MAIOR NO PRIMEIRO ITEM DA LISTA"""
+    """VERIFICA VERSAO LOCAL DO CHROMEDRIVER"""
     output = subprocess.check_output([CHROMEDRIVER_PATH, "--version"]).decode("utf-8")
     version = output.strip().split()[1]
     major_version = version.split(".")[0]
     return int(major_version)
 
 def get_latest_release_version():
+    """VERIFICA VERSAO ATUAL DO CHROMEDRIVER NO REPOSITORIO GOOGLE"""
     url = 'https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json'
     
     response = requests.get(url)
@@ -38,6 +35,7 @@ def get_latest_release_version():
     return int(stable_version_short), stable_version
 
 def check_versions(local:int,release:tuple):
+    """VERIFICA SE VERSAO LOCAL E VERSAO REPOSITORIO GOOGLE COINCIDEM. SENAO, BAIXA E SUBSTITUI VERSAO LOCAL"""
     release_major = release[0]
     release_number = release[1]
     if release_major > local:
@@ -62,7 +60,8 @@ def check_versions(local:int,release:tuple):
 
 
 def get_indices(urls:list):
-    chromedriver_path = r"/home/lucas/.cache/selenium/chromedriver/linux64/chromedriver"
+    """BAIXA ARQUIVOS DAS URLS"""
+    chromedriver_path = "/home/lucas/.cache/selenium/chromedriver/linux64/chromedriver"
 
     download_dir = "/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio"
     if not os.path.exists(download_dir):
@@ -104,40 +103,17 @@ def get_indices(urls:list):
             start_time = time.time()
             while time.time() - start_time < timeout:
                 if any(f.endswith(".xlsx") for f in os.listdir(download_dir)):
-                    print(f"Data retrieved succesfuly! {file_name}")
+                    logger.info(f"Data retrieved succesfuly! {file_name}")
+                    logger.info('-'*50)
                     break
                 time.sleep(1)
             else:
-                print("Wait timing expired. Download couldn't be finished, increase timeout.")
+                logger.warning("Wait timing expired. Download couldn't be finished, increase timeout.")
+                logger.warning('-'*50)
 
         except Exception as e:
-            print(f"Ocorreu um erro: {str(e)}")
+            logger.error(f"Something went wrong: {str(e)}")
+            logger.error('-'*50)
 
     driver.quit()
 
-def run_fecomercio_extractions():
-    print("Running Fecomercio extracts")
-    local_version = get_local_chrome_version()
-    release_version = get_latest_release_version()
-    check_versions(local_version,release_version)
-    urls = [
-        'https://www.fecomercio.com.br/pesquisas/indice/icc', # OK
-        # 'https://www.fecomercio.com.br/pesquisas/indice/icf', ## Erro 404 // SEM SERIE HISTORICA
-        'https://www.fecomercio.com.br/pesquisas/indice/peic', # OK
-        'https://www.fecomercio.com.br/pesquisas/indice/icec', # OK
-        'https://www.fecomercio.com.br/pesquisas/indice/ie', # OK
-        'https://www.fecomercio.com.br/pesquisas/indice/iec', # OK
-        'https://www.fecomercio.com.br/pesquisas/indice/pccv', # OK
-        'https://www.fecomercio.com.br/pesquisas/indice/cvcs', # OK
-        'https://www.fecomercio.com.br/pesquisas/indice/ipv', # OK
-        'https://www.fecomercio.com.br/pesquisas/indice/ips', # OK
-        # 'https://www.fecomercio.com.br/pesquisas/indice/pesp-servicos', # Erro 404
-        # 'https://www.fecomercio.com.br/pesquisas/indice/pesp-comercio', # Erro 404
-        # 'https://www.fecomercio.com.br/pesquisas/indice/pcss', # Erro 404
-        # 'https://www.fecomercio.com.br/pesquisas/indice/imat', # Desatualizado
-        # 'https://www.fecomercio.com.br/pesquisas/indice/lvc', # Desatualizado
-        # 'https://www.fecomercio.com.br/pesquisas/indice/ftn' # Desatualizado
-    ]
-    get_indices(urls)
-    print("Fecomercio extracts done!")
-    print("_"*20)
