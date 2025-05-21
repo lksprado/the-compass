@@ -20,17 +20,22 @@ class Railway(DataFrameModel):
     tu: Series[int] = pa.Field(gt=0)
     tku: Series[int] = pa.Field(gt=0)
     estimated_distance_km: Series[int] = pa.Field(gt=0)
+    file: Series[str]
 
     class Config:
-        strict = True
+        strict = False
         coerce = True
         drop_invalid_rows=True
 
     @pa.check("uf_origem", name="Checagem código UF na origem")
-    def check_uf_origem(cls, s: Series[str]): return s.isin(VALID_UFS)
-    
+    def check_uf_origem(cls, s: Series[str]):
+        return s.isin(VALID_UFS)
+
     @pa.check("uf_destino", name="Checagem código UF no destino")
-    def check_uf_origem(cls, s: Series[str]): return s.isin(VALID_UFS)
+    def check_uf_destino(cls, s: Series[str]):
+        return s.isin(VALID_UFS)
+
+
 
 
 class Toll(DataFrameModel):
@@ -44,6 +49,6 @@ class Toll(DataFrameModel):
     
 
     class Config:
-        strict = True
+        strict = False
         coerce = True
         drop_invalid_rows=True

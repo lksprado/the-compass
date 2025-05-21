@@ -4,7 +4,7 @@ from src.ETL.fecomercio.T_fecomercio import *
 
 def run_fecomercio_extractions():
     """BAIXA ARQUIVOS DAS URLS"""
-    print("Running Fecomercio extracts")
+    logger.info("Running Fecomercio extracts")
     local_version = get_local_chrome_version()
     release_version = get_latest_release_version()
     check_versions(local_version,release_version)
@@ -52,9 +52,8 @@ def run_fecomercio_transformations():
             logger.error(f"Something went wrong with: {transformation_func.__name__}:{e}")
 
 def run_fecomercio_etl():
-    # run_fecomercio_extractions()
+    run_fecomercio_extractions()
     run_fecomercio_transformations()
 
-run_fecomercio_etl()
 
 

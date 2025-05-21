@@ -4,19 +4,11 @@ import json
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from bs4 import BeautifulSoup
-import logging
 import re
+from utils.logger import get_logger
 
-logging.basicConfig(
-    level=logging.ERROR,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("logs/E_future_interest.log"), logging.StreamHandler()],
-)
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 def get_nonce_with_selenium():
     url = 'https://www.infomoney.com.br/ferramentas/juros-futuros-di/'
@@ -77,18 +69,10 @@ def get_json_data(nonce):
         filename = f'data/raw/raw_interest_rates/juros_futuros_{today}.json'
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(json_data, f, ensure_ascii=False, indent=4)
-        print(f"Data retrieved succesfuly! File saved:{filename}")
+        logger.info(f"Data retrieved succesfuly! File saved:{filename}")
+        logger.info("-"*50)
         return json_data
     except requests.exceptions.RequestException as err:
-        print("Error, check log for details")
         logger.error(err)
 
-def run_future_interest_extractions():
-    print("Running Future Interests extract")
-    nonce = get_nonce_with_selenium()
-    if nonce:
-        get_json_data(nonce)
-        print("Future Interests extract done!")
-        print("_"*20)
-    else:
-        print("Failed to get nonce element")
+
