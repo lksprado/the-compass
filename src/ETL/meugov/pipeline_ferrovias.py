@@ -42,17 +42,16 @@ def process_single_railway_file(file: str):
         df.columns = df.columns.str.lower()
         Railway.validate(df, lazy=True)
         df.to_csv(output_file, sep=";", index=False)
-        logger.info(f"Arquivo processado com sucesso: {output_file}")
 
     except pa.errors.SchemaErrors as exc:
         invalid_indices = exc.failure_cases["index"].unique()
         df_valid = df.drop(index=invalid_indices)
 
         if not df_valid.empty:
-            logger.warning(f"{file}: {len(invalid_indices)} linhas inválidas removidas.")
+            logger.warning(f"{file}: {len(invalid_indices)} invalid rows removed")
             df_valid.to_csv(output_file, sep=";", index=False)
         else:
-            logger.error(f"{file}: Todas as linhas inválidas. Arquivo movido para {ERROR_PATH}.")
+            logger.error(f"❗ {file}: All rows invalid. Moving file to {ERROR_PATH}.")
             shutil.copyfile(file_path, os.path.join(ERROR_PATH, file))
 
 def run_railway_transformation_to_csv():
@@ -64,7 +63,7 @@ def run_railway_transformation_to_csv():
     }
 
     if not file_year_map:
-        logger.warning("No files with year --- Check extracted file.")
+        logger.warning("❗ No files with year --- Check extracted file.")
         return
     most_recent_year = max(file_year_map.values())
     
@@ -90,7 +89,7 @@ def update_railway_consolidated_csv():
             df_new = pd.read_csv(file_path, sep=";")
 
             if 'mes_ano' not in df_new.columns:
-                logger.warning(f"'Column 'mes_ano' not found in {file}. Skipping file.")
+                logger.warning(f"'❗ Column 'mes_ano' not found in {file}. Skipping file.")
                 continue
 
             mes_ano_novos = df_new['mes_ano'].unique()
@@ -101,7 +100,7 @@ def update_railway_consolidated_csv():
             df_consolidated = pd.concat([df_consolidated, df_new], ignore_index=True)
 
         except Exception as e:
-            logger.error(f"Failed to process {file_path}: {e}")
+            logger.error(f"❗ Failed to process {file_path}: {e}")
 
     df_consolidated.to_csv(CONSOLIDATED_PATH, sep=";", index=False)
     logger.info(f"Update consolidated data: {CONSOLIDATED_PATH}")
@@ -112,7 +111,7 @@ def run_railway_pipeline():
     logger.info("Initiating railway cargo from ANTT...")
     extraction = run_railway_extraction()
     if not extraction:
-        logger.warning("Pipeline execution stopped due failure on extraction")
+        logger.warning("⚠️ Pipeline execution stopped due failure on extraction")
         exit(1)
     run_railway_transformation_to_csv()
     update_railway_consolidated_csv()
