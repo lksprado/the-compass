@@ -9,7 +9,7 @@ def make_fuel_df(file_path, output_path):
     df = pd.read_excel(file_path, header=None)
     df.columns = df.iloc[16]
     df = df.iloc[17:].reset_index(drop=True)
-    df.to_csv(f"{output_path}/fuels.csv", index=False, sep=';')
+    df.to_csv(f"{output_path}/fuels_prices.csv", index=False, sep=';')
     return df 
 
 
@@ -23,6 +23,7 @@ def make_energy_df(sheet, output_name, file_path, output_path):
             df = df.drop(columns=['dataexcel', 'dataversao'])
             object_cols = df.select_dtypes(include='object').columns
             df[object_cols] = df[object_cols].apply(lambda x: x.str.lower())
+            df.rename(columns={'consumo':'consumo_mwh'},inplace=True)
             df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
             logger.info(f"File saved successfully at {output_path}/{output_name}.csv")
         elif sheet == 'SETOR INDUSTRIAL POR UF':
@@ -32,6 +33,7 @@ def make_energy_df(sheet, output_name, file_path, output_path):
             df = df.drop(columns=['dataexcel', 'dataversao'])
             object_cols = df.select_dtypes(include='object').columns
             df[object_cols] = df[object_cols].apply(lambda x: x.str.lower())
+            df.rename(columns={'consumo':'consumo_mwh'},inplace=True)
             df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
             logger.info(f"File saved successfully at {output_path}/{output_name}.csv")
 
