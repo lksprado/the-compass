@@ -2,7 +2,9 @@ from dotenv import load_dotenv
 import requests 
 import os 
 import json 
+import re
 from utils.logger import get_logger
+from typing import List, Dict
 
 logger = get_logger(__name__)
 load_dotenv()
@@ -33,10 +35,20 @@ class MeuGov():
             logger.info("-"*50)
             return True
         except Exception as err :
-            logger.error(f"EXTRACTION FAILED to retrieve json: {err}")
+            logger.error(f"🚫 EXTRACTION failed to retrieve json: {err}")
             return False
+
+    @staticmethod
+    def get_files_by_extension(directory: str, extension: str) -> List[str]:
+        """LISTA CADA ARQUIVO NO DIRETORIO DE ACORDO COM A EXTENSAO DESEJADA."""
+        return [f for f in os.listdir(directory) if f.endswith(extension)]
+
+    @staticmethod
+    def extract_year_from_filename(filename: str) -> int:
+        """EXTRAI O ANO DE CADA NOME DE ARQUIVO."""
+        match = re.search(r'(20\d{2})', filename)
+        return int(match.group(1)) if match else None
         
-    
 
 
 

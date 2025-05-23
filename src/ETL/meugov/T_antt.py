@@ -8,7 +8,7 @@ from src.column_mapping.antt import traducao_mercadorias, tolls_columns
 from utils.logger import get_logger
 logger = get_logger(__name__)
 
-def make_railway_df(file):
+def make_railway_df(file:str):
     filename = os.path.basename(file)
     with open(file, 'r', encoding='utf-8') as f:
         data = json.load(f)

@@ -4,25 +4,21 @@ from utils.logger import get_logger
 logger = get_logger(__name__)
 
 
-def get_excel(url,output_path):
+def get_excel(url:str,filename_extension:str,output_path:str):
+    """EXTRAI EXCEL DO OFFICE 365"""
     os.makedirs(output_path, exist_ok=True)
-    filename = url.split('/')[-1]
-    save_path = os.path.join(output_path, filename)
-
+    save_path = os.path.join(output_path, filename_extension)
     try:
-        print(f"Requesting {url}...")
-        response = requests.get(url)
+        response = requests.get(url, timeout=10)
         response.raise_for_status()  
         with open(save_path, 'wb') as file:
             file.write(response.content)
         logger.info(f"Data retrieved succesfuly! File saved: {save_path}")
         logger.info("_"*50)
-    except requests.exceptions.RequestException as err :
-        logger.error(err)
+        return True 
+    except Exception as err :
+        logger.error(f"🚫 EXTRACTION failed to retrieve json: {err}")
+        return False
 
-def run_energy_and_fuels_extractions():
-    url_energy = "https://www.epe.gov.br/sites-pt/publicacoes-dados-abertos/dados-abertos/Documents/Dados_abertos_Consumo_Mensal.xlsx"
-    get_excel(url_energy,'data/raw/raw_meugov/energy')
-    url_fuels = "https://www.gov.br/anp/pt-br/assuntos/precos-e-defesa-da-concorrencia/precos/precos-revenda-e-de-distribuicao-combustiveis/shlp/mensal/mensal-brasil-desde-jan2013.xlsx"
-    get_excel(url_fuels,'data/raw/raw_meugov/fuel')
+
     

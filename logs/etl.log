@@ -228,3 +228,20 @@
 2025-05-21 18:10:15,682 - INFO - Iniciando pipeline de ferrovias ANTT...
 2025-05-21 18:10:15,823 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
 2025-05-21 18:10:15,823 - WARNING - Pipeline execution stopped due failure on extraction
+2025-05-22 15:13:43,771 - INFO - Initiating toll volume from ANTT...
+2025-05-22 15:13:44,445 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
+2025-05-22 15:13:44,445 - WARNING - ⚠️ Pipeline execution stopped due failure on extraction
+2025-05-23 13:17:43,051 - INFO - Data retrieved succesfuly! File saved: data/raw/raw_meugov/energy/consumo_energia_eletrica_nacional.xlsx
+2025-05-23 13:17:43,053 - INFO - __________________________________________________
+2025-05-23 13:17:48,702 - ERROR - 🚫 General Error in transformation: When drop_invalid_rows is True, lazy must be set to True.
+2025-05-23 13:17:49,619 - ERROR - 🚫 General Error in transformation: When drop_invalid_rows is True, lazy must be set to True.
+2025-05-23 13:18:37,152 - INFO - File saved successfully at data/processed/energy/consumo_setor_industrial_uf.csv
+2025-05-23 13:18:38,128 - ERROR - 🚫 General Error in transformation: string indices must be integers, not 'str'
+2025-05-23 13:30:17,552 - ERROR - 🚫 General Error in transformation: [Errno 2] No such file or directory: 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
+2025-05-23 13:30:36,915 - ERROR - 🚫 General Error in transformation: [Errno 2] No such file or directory: 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
+2025-05-23 13:31:29,788 - ERROR - 🚫 General Error in transformation: [Errno 2] No such file or directory: 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
+2025-05-23 13:31:29,788 - ERROR - 🚫 General Error in transformation: [Errno 2] No such file or directory: 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
+2025-05-23 13:32:12,933 - INFO - File saved successfully at data/processed/energy/consumo_setor_industrial_uf.csv
+2025-05-23 13:32:13,840 - ERROR - 🚫 General Error in transformation: string indices must be integers, not 'str'
+2025-05-23 13:34:48,440 - INFO - File saved successfully at data/processed/energy/consumo_uf.csv
+2025-05-23 13:34:54,700 - INFO - File saved successfully at data/processed/energy/consumo_setor_industrial_uf.csv

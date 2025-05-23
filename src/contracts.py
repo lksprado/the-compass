@@ -3,6 +3,7 @@ from pandera.typing import Series
 from pandera import DataFrameModel
 from typing import Optional
 
+## coerce força a conversão dos tipos de dados do dataframe
 
 VALID_UFS = {
         'RO','AC','AM','RR','PA','AP','TO','MA','PI','CE','RN','PB','PE',
@@ -36,8 +37,6 @@ class Railway(DataFrameModel):
         return s.isin(VALID_UFS)
 
 
-
-
 class Toll(DataFrameModel):
     mes_ano: Series[pa.DateTime]
     concessionaria: Series[str]
@@ -45,10 +44,45 @@ class Toll(DataFrameModel):
     tipo_cobranca: Optional[Series[str]] = pa.Field(nullable=True)
     tipo_de_veiculo: Series[str]
     volume_total: Series[int] = pa.Field(gt=0)
-    
-    
 
     class Config:
         strict = False
         coerce = True
         drop_invalid_rows=True
+
+class EnergyConsumoNumconsSamUf(DataFrameModel):
+    Data: Series[int]	
+    DataExcel: Series[pa.Date]
+    UF: Series[str]
+    Regiao: Series[str]
+    Sistema: Series[str]
+    Classe: Series[str]
+    TipoConsumidor: Series[str]
+    Consumo: Series[float]
+    Consumidores: Series[int]
+    DataVersao: Series[pa.Date]
+    class Config:
+        strict = False
+        coerce = True
+        drop_invalid_rows=True
+        
+    @pa.check("UF", name="Checagem código UF")
+    def check_uf(cls, s: Series[str]):
+        return s.isin(VALID_UFS)
+
+class EnergySetorIndustrialUf(DataFrameModel):
+    Data: Series[int]	
+    DataExcel: Series[pa.Date]
+    SetorIndustrial: Series[str]
+    UF: Series[str]
+    Regiao: Series[str]    
+    Consumo: Series[float]
+    DataVersao: Series[pa.Date]
+    class Config:
+        strict = False
+        coerce = True
+        drop_invalid_rows=True
+        
+    @pa.check("UF", name="Checagem código UF")
+    def check_uf(cls, s: Series[str]):
+        return s.isin(VALID_UFS)

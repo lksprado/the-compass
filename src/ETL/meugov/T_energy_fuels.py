@@ -1,6 +1,11 @@
 import pandas as pd 
+from src.contracts import EnergyConsumoNumconsSamUf,EnergySetorIndustrialUf
+from pandera.errors import SchemaError, SchemaErrors
+from utils.logger import get_logger
+logger = get_logger(__name__)
 
-def fuel_parser(file_path, output_path):
+
+def make_fuel_df(file_path, output_path):
     df = pd.read_excel(file_path, header=None)
     df.columns = df.iloc[16]
     df = df.iloc[17:].reset_index(drop=True)
@@ -8,26 +13,33 @@ def fuel_parser(file_path, output_path):
     return df 
 
 
-def energy_parser(sheet,output_name, file_path, output_path):
-    df = pd.read_excel(file_path, sheet_name=sheet)
-    
-    df.columns = [col.lower() for col in df.columns]
-    df['data'] = pd.to_datetime(df['data'],format='%Y%m%d')
-    df = df.drop(columns=['dataexcel','dataversao'])   
-    
-    for col in df.columns:
-        if df[col].dtype == 'object':
-            df[col] = df[col].str.lower()
-    
-    df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
-    return df 
+def make_energy_df(sheet, output_name, file_path, output_path):
+    try:
+        df = pd.read_excel(file_path, sheet_name=sheet)
+        if sheet == 'CONSUMO E NUMCONS SAM UF':
+            df = EnergyConsumoNumconsSamUf.validate(df, lazy=True) 
+            df.columns = [col.lower() for col in df.columns]
+            df['data'] = pd.to_datetime(df['data'], format='%Y%m%d')
+            df = df.drop(columns=['dataexcel', 'dataversao'])
+            object_cols = df.select_dtypes(include='object').columns
+            df[object_cols] = df[object_cols].apply(lambda x: x.str.lower())
+            df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
+            logger.info(f"File saved successfully at {output_path}/{output_name}.csv")
+        elif sheet == 'SETOR INDUSTRIAL POR UF':
+            df = EnergySetorIndustrialUf.validate(df, lazy=True) 
+            df.columns = [col.lower() for col in df.columns]
+            df['data'] = pd.to_datetime(df['data'], format='%Y%m%d')
+            df = df.drop(columns=['dataexcel', 'dataversao'])
+            object_cols = df.select_dtypes(include='object').columns
+            df[object_cols] = df[object_cols].apply(lambda x: x.str.lower())
+            df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
+            logger.info(f"File saved successfully at {output_path}/{output_name}.csv")
 
-def run_energy_fuel_transformations():
-    input = 'data/raw/raw_meugov/fuel/mensal-brasil-desde-jan2013.xlsx'
-    output = 'data/processed/energy'
-    fuel_parser(input,output)
-    
-    energy_input = 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
-    energy_output = 'data/processed/energy'
-    
-    energy_parser('SETOR INDUSTRIAL POR UF','consumo_setor_industrial_uf',energy_input,energy_output)
+    except (SchemaError, SchemaErrors) as e:
+        logger.error(f"❗ Validation Error in dataframe schema: {e}")
+        logger.error(f"Details: {e.failure_cases}")
+        return None
+
+    except Exception as e:
+        logger.error(f"❗ TRANSFORMATION failed: {e}")
+        return None
