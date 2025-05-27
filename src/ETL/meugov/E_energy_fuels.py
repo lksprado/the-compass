@@ -13,12 +13,8 @@ def get_excel(url:str,filename_extension:str,output_path:str):
         response.raise_for_status()  
         with open(save_path, 'wb') as file:
             file.write(response.content)
-        logger.info(f"Data retrieved succesfuly! File saved: {save_path}")
-        logger.info("_"*50)
+        logger.info(f"Raw file retrieved succesfuly! Saved: {save_path}")
         return True 
     except Exception as err :
         logger.error(f"🚫 EXTRACTION failed to retrieve json: {err}")
         return False
-
-
-    

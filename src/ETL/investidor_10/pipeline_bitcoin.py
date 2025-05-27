@@ -21,12 +21,14 @@ def run_bitcoin_extraction():
         response = requests.get(url, headers=headers)
         data = response.json() 
         extraction_date = date.today().strftime("%Y-%m-%d")
-        with open(f'data/raw/raw_bitcoin/bitcoin_{extraction_date}.json','w') as f:
+        file_path = f'data/raw/raw_bitcoin/bitcoin_{extraction_date}.json' 
+        with open(file_path,'w') as f:
             json.dump(data,f,indent=4)
-        logger.info(f"Data retrieved succesfuly! Bitcoin")
-    except requests.exceptions.RequestException as err :
-        logger.error(err)
-
+        logger.info(f"Raw file retrieved succesfuly! Saved: {file_path}")
+        return True
+    except Exception as err :
+        logger.error(f"🚫 EXTRACTION failed to retrieve json: {err}")
+        return False
 
 def run_bitcoin_transformations():
     df_list =[]
@@ -45,12 +47,16 @@ def run_bitcoin_transformations():
         final_df = final_df.drop_duplicates()
         
         final_df.to_csv(f'{output_folder}/bitcoin.csv',sep=';',index=False)
-        logger.info("Bitcoin dataframe converted to csv succesfuly")
-        
+        logger.info(f"File saved successfully at: {output_folder}/bitcoin.csv")
     except Exception as e:
-        logger.error(f"Something went wrong at conversion to csv with {output_folder}/bitcoin.csv --- {e}")
+        logger.error(f"❗  Something went wrong at conversion to csv with {output_folder}/bitcoin.csv --- {e}")
     
-def run_bitcoin_etl():
-    run_bitcoin_extraction()
-    run_bitcoin_transformations()
-    
+def run_bitcoin_pipeline():
+    logger.info("Initiating Bitcoin pipeline from Investidor10...")
+    extraction = run_bitcoin_extraction()
+    if extraction:
+        run_bitcoin_transformations()
+    else:
+        logger.warning("⚠️  Pipeline execution stopped due failure on extraction")
+    logger.info("✅ Bitcoin pipeline completed!")
+    logger.info("-"*100)

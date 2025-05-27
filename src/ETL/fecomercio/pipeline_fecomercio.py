@@ -1,11 +1,15 @@
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+
 from src.ETL.fecomercio.E_fecomercio import *
 from src.ETL.fecomercio.T_fecomercio import *
-
+from utils.logger import get_logger
+logger = get_logger(__name__)
 
 def run_fecomercio_extractions():
     """BAIXA ARQUIVOS DAS URLS"""
-    logger.info("Running Fecomercio extracts")
-    local_version = get_local_chrome_version()
+    local_version = get_local_browser_version()
     release_version = get_latest_release_version()
     check_versions(local_version,release_version)
     urls = [
@@ -27,8 +31,6 @@ def run_fecomercio_extractions():
         # 'https://www.fecomercio.com.br/pesquisas/indice/ftn' # Desatualizado
     ]
     get_indices(urls)
-    print("Fecomercio extracts done!")
-    print("_"*100)
 
 def run_fecomercio_transformations():
     transformations = [
@@ -45,15 +47,21 @@ def run_fecomercio_transformations():
     ]
     for transformation_func in transformations:
         try:
-            print(f"Executing: {transformation_func.__name__}")
             transformation_func()
-            print("_"*100)
         except Exception as e:
             logger.error(f"Something went wrong with: {transformation_func.__name__}:{e}")
 
-def run_fecomercio_etl():
+def run_fecomercio_pipeline():
+    logger.info("Initiating Fecomercio Index pipeline from Fecomercio...")
     run_fecomercio_extractions()
     run_fecomercio_transformations()
+    logger.info("✅ Fecomercio Index pipeline completed!")
+    logger.info("-"*100)
 
+if __name__ == '__main__':
+    local_version = get_local_browser_version()
+    release_version = get_latest_release_version()
+    print(local_version,release_version)
+    check_versions(local_version,release_version)
 
 

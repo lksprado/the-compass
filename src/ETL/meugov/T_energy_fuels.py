@@ -10,6 +10,7 @@ def make_fuel_df(file_path, output_path):
     df.columns = df.iloc[16]
     df = df.iloc[17:].reset_index(drop=True)
     df.to_csv(f"{output_path}/fuels_prices.csv", index=False, sep=';')
+    logger.info(f"File saved successfully at: {output_path}/fuels_prices.csv")
     return df 
 
 
@@ -35,7 +36,7 @@ def make_energy_df(sheet, output_name, file_path, output_path):
             df[object_cols] = df[object_cols].apply(lambda x: x.str.lower())
             df.rename(columns={'consumo':'consumo_mwh'},inplace=True)
             df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
-            logger.info(f"File saved successfully at {output_path}/{output_name}.csv")
+            logger.info(f"File saved successfully at: {output_path}/{output_name}.csv")
 
     except (SchemaError, SchemaErrors) as e:
         logger.error(f"❗ Validation Error in dataframe schema: {e}")

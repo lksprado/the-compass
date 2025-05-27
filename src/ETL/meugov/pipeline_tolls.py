@@ -1,6 +1,8 @@
 from src.ETL.meugov.E_antt import MeuGov
 from src.ETL.meugov.T_antt import *
 import json
+from utils.logger import get_logger
+logger = get_logger(__name__)
 
 # OBTEM OS METADOS DA API PARA OBTER LINK MAIS ATUALIZADO
 def run_railway_api_metadata(api_url,output_path):
@@ -22,7 +24,7 @@ def get_latest_update(api_metadata_json_file):
         print(recurso["titulo"], recurso["link"])
     return
 
-INPUT_PATH = 'data/raw/raw_meugov/antt_pedagio/arquivos'
+INPUT_PATH = 'data/raw/raw_meugov/antt_pedagio/'
 OUTPUT_PATH = 'data/processed/antt_pedagio/arquivos'  
 ERROR_PATH = 'data/processed/errors'
 CONSOLIDATED_PATH = 'data/processed/antt_pedagio/toll_table.csv'
@@ -104,16 +106,21 @@ def update_toll_consolidated_csv():
     
 def run_tolls_pipeline():
     """EXECUTA O PIPELINE COMPLETO."""
-    logger.info("Initiating toll volume from ANTT...")
+    logger.info("Initiating Toll Volume pipeline from ANTT..")
     extraction = run_tolls_extraction()
-    if not extraction:
-        logger.warning("⚠️ Pipeline execution stopped due failure on extraction")
-        logger.info("-"*50)
-        exit(1)
-    run_toll_transformation_to_csv()
-    update_toll_consolidated_csv()
-    logger.info("✅ Initiating toll volume ANTT pipeline completed!")
-    logger.info("-"*50)
+    if extraction:
+        run_toll_transformation_to_csv()
+        update_toll_consolidated_csv()
+    else:
+        logger.warning("⚠️  Pipeline execution stopped due failure on extraction")
+    logger.info("✅ Toll volume ANTT pipeline completed!")
+    logger.info("-"*100)
+
+def run():
+    recent_files = 'data/raw/raw_meugov/antt_pedagio'
+    for file in os.listdir(recent_files):
+        process_single_toll_file(file)
 
 if __name__ == "__main__":
-    run_tolls_pipeline()
+    # run_tolls_pipeline() 
+    run()

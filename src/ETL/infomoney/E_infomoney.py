@@ -33,12 +33,9 @@ def get_nonce_with_selenium():
             if match:
                 nonce = match.group(1)
                 break
-    
     driver.quit()
-    
     if not nonce:
         logger.error("Nonce não encontrado no toolData.")
-    
     return nonce
 
 def get_json_data(nonce):
@@ -70,9 +67,8 @@ def get_json_data(nonce):
         with open(filename, 'w', encoding='utf-8') as f:
             json.dump(json_data, f, ensure_ascii=False, indent=4)
         logger.info(f"Data retrieved succesfuly! File saved:{filename}")
-        logger.info("-"*50)
-        return json_data
-    except requests.exceptions.RequestException as err:
-        logger.error(err)
-
+        return True
+    except Exception as err:
+        logger.error(f"🚫 EXTRACTION failed to retrieve json: {err}")
+        return False
 

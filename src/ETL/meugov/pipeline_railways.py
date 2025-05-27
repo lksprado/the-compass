@@ -90,16 +90,15 @@ def update_railway_consolidated_csv():
 
 def run_railway_pipeline():
     """EXECUTA O PIPELINE COMPLETO."""
-    logger.info("Initiating railway cargo from ANTT...")
+    logger.info("Initiating Railway Cargo pipeline from ANTT...")
     extraction = run_railway_extraction()
-    if not extraction:
-        logger.warning("⚠️ Pipeline execution stopped due failure on extraction")
-        exit(1)
-        logger.info("-"*50)
-    run_railway_transformation_to_csv()
-    update_railway_consolidated_csv()
+    if extraction:
+        run_railway_transformation_to_csv()
+        update_railway_consolidated_csv()
+    else:
+        logger.warning("⚠️  Pipeline execution stopped due failure on extraction")
     logger.info("✅ Railway cargo ANTT pipeline completed!")
-    logger.info("-"*50)
+    logger.info("-"*100)
 
 if __name__ == "__main__":
-    run_railway_pipeline()()
+    run_railway_pipeline()

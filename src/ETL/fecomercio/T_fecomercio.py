@@ -16,14 +16,14 @@ def file_mover():
     file_list = os.listdir(downloads_dir)
     filenames = [item for item in file_list if item.endswith('.xlsx')] # cria nova lista
     destination = {
-        'cvcs': '/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/cvcs',
-        'estoques': '/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/iestoques',
-        'icc': '/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/icc',
-        'icec': '/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/icec',
-        'iec': '/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/iec',
-        'ipv': '/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/ipv',
-        'pccv': '/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/pccv',
-        'peic': '/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/peic'
+        'cvcs': 'data/raw/raw_fecomercio/cvcs',
+        'estoques': 'data/raw/raw_fecomercio/iestoques',
+        'icc': 'data/raw/raw_fecomercio/icc',
+        'icec': 'data/raw/raw_fecomercio/icec',
+        'iec': 'data/raw/raw_fecomercio/iec',
+        'ipv': 'data/raw/raw_fecomercio/ipv',
+        'pccv': 'data/raw/raw_fecomercio/pccv',
+        'peic': 'data/raw/raw_fecomercio/peic'
     }
     for file in filenames:
         indice = file.strip().split('_')[0]
@@ -33,7 +33,7 @@ def file_mover():
                 os.remove(os.path.join(dest_dir,f))
             
             shutil.move(os.path.join(downloads_dir, file), dest_dir)
-            # print(f"Arquivo {file} movido para {dest_dir}")
+            logger.info(f"Raw file retrieved succesfuly! Saved: {dest_dir}/{file}")
 
 def sanitize_column_names(df):
     df.columns = (

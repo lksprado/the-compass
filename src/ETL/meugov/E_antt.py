@@ -31,7 +31,7 @@ class MeuGov():
             data = response.json()
             with open(output_file_path, 'w') as f:
                 json.dump(data,f,indent=4)
-            logger.info(f'Data retrieved succesfuly! File saved:{output_file_path}')
+            logger.info(f'Raw file retrieved succesfuly! Saved: {output_file_path}')
             logger.info("-"*50)
             return True
         except Exception as err :

@@ -47,9 +47,11 @@ def make_toll_df(file:str):
     except:
         df['mes_ano'] = pd.to_datetime(df['mes_ano'], format='%d-%m-%Y').dt.date
     for col in ['concessionaria', 'praca', 'tipo_cobranca', 'tipo_de_veiculo']:
+        if col in df.columns:
             df[col] = df[col].str.lower()
-    df['volume_total'] = pd.to_numeric(df['volume_total'], errors='coerce')
-    df['volume_total'] = df['volume_total'].round().astype('Int64') 
+    df['volume_total'] = pd.to_numeric(df['volume_total'], errors='coerce').round().astype('Int64') 
+    if 'tipo_cobranca' not in df.columns:
+        df['tipo_cobranca'] = pd.NA
     df = df[['concessionaria', 'mes_ano','praca','tipo_cobranca','tipo_de_veiculo','volume_total']]
     df['file'] = filename
     return df 

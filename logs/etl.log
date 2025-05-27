@@ -1,258 +1,50 @@
-2025-05-16 16:50:22,633 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 16:57:54,407 - INFO - iestoques dataframe converted to csv succesfuly
-2025-05-16 17:01:53,668 - INFO - PCCV dataframe converted to csv succesfuly
-2025-05-16 17:02:07,328 - INFO - CVCS dataframe converted to csv succesfuly
-2025-05-16 17:02:57,064 - INFO - IPV dataframe converted to csv succesfuly
-2025-05-16 17:03:08,651 - INFO - IPS dataframe converted to csv succesfuly
-2025-05-16 17:18:41,709 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/icc/icc_link_download_202504.xlsx --- 'Index' object has no attribute 'strip'
-2025-05-16 17:19:07,291 - INFO - ICC dataframe converted to csv succesfuly
-2025-05-16 17:20:28,998 - INFO - ICC dataframe converted to csv succesfuly
-2025-05-16 17:21:11,947 - INFO - ICC dataframe converted to csv succesfuly
-2025-05-16 17:26:57,035 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 17:29:45,853 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/peic/peic_link_download_202503.xlsx --- "['endividadas1', 'contas_em_atraso1', 'nao_terao_condicoesde_pagar1'] not found in axis"
-2025-05-16 17:32:22,973 - INFO - ICC dataframe converted to csv succesfuly
-2025-05-16 17:34:59,698 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/peic/peic_link_download_202503.xlsx --- "['endividadas1', 'contas_em_atraso1', 'nao_terao_condicoesde_pagar1'] not found in axis"
-2025-05-16 17:36:28,363 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 17:36:32,583 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 17:36:40,549 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 17:37:24,844 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 17:37:47,700 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 17:38:20,243 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 17:38:47,505 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 17:42:02,588 - INFO - ICEC dataframe converted to csv succesfuly
-2025-05-16 18:22:01,886 - INFO - iestoques dataframe converted to csv succesfuly
-2025-05-16 18:22:22,717 - INFO - ECSP dataframe converted to csv succesfuly
-2025-05-16 18:34:41,067 - INFO - PCCV dataframe converted to csv succesfuly
-2025-05-16 18:35:37,475 - INFO - CVCS dataframe converted to csv succesfuly
-2025-05-16 18:43:59,994 - INFO - IPV dataframe converted to csv succesfuly
-2025-05-16 18:44:31,284 - INFO - Data retrieved succesfuly! icc_link_download_202504.xlsx
-2025-05-16 18:44:31,285 - INFO - --------------------------------------------------
-2025-05-16 18:44:35,406 - INFO - Data retrieved succesfuly! peic_link_download_202503.xlsx
-2025-05-16 18:44:35,407 - INFO - --------------------------------------------------
-2025-05-16 18:44:39,484 - INFO - Data retrieved succesfuly! icec_link_download_202504.xlsx
-2025-05-16 18:44:39,484 - INFO - --------------------------------------------------
-2025-05-16 18:44:43,364 - INFO - Data retrieved succesfuly! estoques_link_download_202504.xlsx
-2025-05-16 18:44:43,364 - INFO - --------------------------------------------------
-2025-05-16 18:44:47,163 - INFO - Data retrieved succesfuly! iec_link_download_202504.xlsx
-2025-05-16 18:44:47,163 - INFO - --------------------------------------------------
-2025-05-16 18:44:51,146 - INFO - Data retrieved succesfuly! pccv_link_download_02_2025.xlsx
-2025-05-16 18:44:51,147 - INFO - --------------------------------------------------
-2025-05-16 18:44:54,983 - INFO - Data retrieved succesfuly! cvcs_link_download_mar25.xlsx
-2025-05-16 18:44:54,983 - INFO - --------------------------------------------------
-2025-05-16 18:44:58,908 - INFO - Data retrieved succesfuly! ipv_link_download_mar25.xlsx
-2025-05-16 18:44:58,908 - INFO - --------------------------------------------------
-2025-05-16 18:45:02,921 - INFO - Data retrieved succesfuly! ips_link_download_mar25.xlsx
-2025-05-16 18:45:02,921 - INFO - --------------------------------------------------
-2025-05-16 18:45:03,151 - INFO - ICC dataframe converted to csv succesfuly
-2025-05-16 18:45:03,187 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 18:45:03,331 - INFO - ICEC dataframe converted to csv succesfuly
-2025-05-16 18:45:03,360 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/iestoques/estoques_link_download_202504.xlsx --- DataFrame.rename() got an unexpected keyword argument 'colums'
-2025-05-16 18:45:03,391 - INFO - ECSP dataframe converted to csv succesfuly
-2025-05-16 18:45:03,438 - INFO - PCCV dataframe converted to csv succesfuly
-2025-05-16 18:45:03,462 - INFO - CVCS dataframe converted to csv succesfuly
-2025-05-16 18:45:03,492 - INFO - IPV dataframe converted to csv succesfuly
-2025-05-16 18:45:03,520 - ERROR - Something went wrong at conversion to csv with /media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio/ips/ips_link_download_fev25.xlsx --- 'ips'
-2025-05-16 18:46:44,926 - INFO - ICC dataframe converted to csv succesfuly
-2025-05-16 18:46:44,960 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 18:46:45,107 - INFO - ICEC dataframe converted to csv succesfuly
-2025-05-16 18:46:45,141 - INFO - iestoques dataframe converted to csv succesfuly
-2025-05-16 18:46:45,170 - INFO - ECSP dataframe converted to csv succesfuly
-2025-05-16 18:46:45,214 - INFO - PCCV dataframe converted to csv succesfuly
-2025-05-16 18:46:45,240 - INFO - CVCS dataframe converted to csv succesfuly
-2025-05-16 18:46:45,270 - INFO - IPV dataframe converted to csv succesfuly
-2025-05-16 18:46:45,300 - INFO - IPS dataframe converted to csv succesfuly
-2025-05-16 18:47:57,121 - INFO - ICC dataframe converted to csv succesfuly
-2025-05-16 18:47:57,156 - INFO - PEIC dataframe converted to csv succesfuly
-2025-05-16 18:47:57,296 - INFO - ICEC dataframe converted to csv succesfuly
-2025-05-16 18:47:57,323 - INFO - iestoques dataframe converted to csv succesfuly
-2025-05-16 18:47:57,355 - INFO - ECSP dataframe converted to csv succesfuly
-2025-05-16 18:47:57,396 - INFO - PCCV dataframe converted to csv succesfuly
-2025-05-16 18:47:57,421 - INFO - CVCS dataframe converted to csv succesfuly
-2025-05-16 18:47:57,449 - INFO - IPV dataframe converted to csv succesfuly
-2025-05-16 18:47:57,479 - INFO - IPS dataframe converted to csv succesfuly
-2025-05-17 20:06:36,688 - INFO - Data retrieved succesfuly! File saved:data/raw/raw_monetary/m2_supply.csv
-2025-05-17 20:06:36,688 - INFO - __________________________________________________
-2025-05-20 16:56:32,328 - ERROR - Expecting value: line 1 column 1 (char 0)
-2025-05-20 16:57:05,999 - ERROR - Expecting value: line 1 column 1 (char 0)
-2025-05-20 17:00:16,018 - ERROR - Expecting value: line 1 column 1 (char 0)
-2025-05-20 17:36:16,710 - INFO - Data retrieved succesfuly! File saved:data/raw/raw_meugov/antt_ferrovias/api_metadata438a5184-09db-49a3-88c8-0bad418b4409
-2025-05-20 17:36:16,710 - INFO - --------------------------------------------------
-2025-05-20 18:15:00,985 - ERROR - Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:15:59,827 - ERROR - Failed to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:16:46,849 - ERROR - Failed to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:17:22,010 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:24:34,825 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:25:00,159 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:31:30,865 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:32:36,041 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:33:22,647 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 18:35:41,668 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 19:42:33,021 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 19:58:34,229 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 19:59:03,648 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-20 20:00:56,812 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-21 15:57:56,212 - INFO - 🚀 Iniciando pipeline de ferrovias ANTT...
-2025-05-21 15:57:56,214 - INFO - Processando arquivos do ano mais recente: 2025
-2025-05-21 15:57:56,280 - INFO - Arquivo processado com sucesso: data/processed/antt_ferrovias/arquivos/producao_origem_destino_2025.csv
-2025-05-21 15:57:56,600 - INFO - Arquivo consolidado carregado: data/processed/antt_ferrovias/railway_table.csv
-2025-05-21 15:57:56,611 - INFO - Processando producao_origem_destino_2006.csv | mes_ano detectado: ['2006-01-01' '2006-02-01' '2006-03-01' '2006-04-01' '2006-05-01'
- '2006-06-01' '2006-07-01' '2006-08-01' '2006-09-01' '2006-10-01'
- '2006-11-01' '2006-12-01']
-2025-05-21 15:57:56,680 - INFO - Processando producao_origem_destino_2007.csv | mes_ano detectado: ['2007-01-01' '2007-02-01' '2007-03-01' '2007-04-01' '2007-05-01'
- '2007-06-01' '2007-07-01' '2007-08-01' '2007-09-01' '2007-10-01'
- '2007-11-01' '2007-12-01']
-2025-05-21 15:57:56,738 - INFO - Processando producao_origem_destino_2008.csv | mes_ano detectado: ['2008-01-01' '2008-02-01' '2008-03-01' '2008-04-01' '2008-05-01'
- '2008-06-01' '2008-07-01' '2008-08-01' '2008-09-01' '2008-10-01'
- '2008-11-01' '2008-12-01']
-2025-05-21 15:57:56,788 - INFO - Processando producao_origem_destino_2009.csv | mes_ano detectado: ['2009-01-01' '2009-02-01' '2009-03-01' '2009-04-01' '2009-05-01'
- '2009-06-01' '2009-07-01' '2009-08-01' '2009-09-01' '2009-10-01'
- '2009-11-01' '2009-12-01']
-2025-05-21 15:57:56,840 - INFO - Processando producao_origem_destino_2010.csv | mes_ano detectado: ['2010-01-01' '2010-02-01' '2010-03-01' '2010-04-01' '2010-05-01'
- '2010-06-01' '2010-07-01' '2010-08-01' '2010-09-01' '2010-10-01'
- '2010-11-01' '2010-12-01']
-2025-05-21 15:57:56,889 - INFO - Processando producao_origem_destino_2011.csv | mes_ano detectado: ['2011-01-01' '2011-02-01' '2011-03-01' '2011-04-01' '2011-05-01'
- '2011-06-01' '2011-07-01' '2011-08-01' '2011-09-01' '2011-10-01'
- '2011-11-01' '2011-12-01']
-2025-05-21 15:57:56,939 - INFO - Processando producao_origem_destino_2012.csv | mes_ano detectado: ['2012-01-01' '2012-02-01' '2012-03-01' '2012-04-01' '2012-05-01'
- '2012-06-01' '2012-07-01' '2012-08-01' '2012-09-01' '2012-10-01'
- '2012-11-01' '2012-12-01']
-2025-05-21 15:57:56,987 - INFO - Processando producao_origem_destino_2013.csv | mes_ano detectado: ['2013-01-01' '2013-02-01' '2013-03-01' '2013-04-01' '2013-05-01'
- '2013-06-01' '2013-07-01' '2013-08-01' '2013-09-01' '2013-10-01'
- '2013-11-01' '2013-12-01']
-2025-05-21 15:57:57,032 - INFO - Processando producao_origem_destino_2014.csv | mes_ano detectado: ['2014-01-01' '2014-02-01' '2014-03-01' '2014-04-01' '2014-05-01'
- '2014-06-01' '2014-07-01' '2014-08-01' '2014-09-01' '2014-10-01'
- '2014-11-01' '2014-12-01']
-2025-05-21 15:57:57,080 - INFO - Processando producao_origem_destino_2015.csv | mes_ano detectado: ['2015-01-01' '2015-02-01' '2015-03-01' '2015-04-01' '2015-05-01'
- '2015-06-01' '2015-07-01' '2015-08-01' '2015-09-01' '2015-10-01'
- '2015-11-01' '2015-12-01']
-2025-05-21 15:57:57,121 - INFO - Processando producao_origem_destino_2016.csv | mes_ano detectado: ['2016-01-01' '2016-02-01' '2016-03-01' '2016-04-01' '2016-05-01'
- '2016-06-01' '2016-07-01' '2016-08-01' '2016-09-01' '2016-10-01'
- '2016-11-01' '2016-12-01']
-2025-05-21 15:57:57,166 - INFO - Processando producao_origem_destino_2017.csv | mes_ano detectado: ['2017-01-01' '2017-02-01' '2017-03-01' '2017-04-01' '2017-05-01'
- '2017-06-01' '2017-07-01' '2017-08-01' '2017-09-01' '2017-10-01'
- '2017-11-01' '2017-12-01']
-2025-05-21 15:57:57,210 - INFO - Processando producao_origem_destino_2018.csv | mes_ano detectado: ['2018-01-01' '2018-02-01' '2018-03-01' '2018-04-01' '2018-05-01'
- '2018-06-01' '2018-07-01' '2018-08-01' '2018-09-01' '2018-10-01'
- '2018-11-01' '2018-12-01']
-2025-05-21 15:57:57,253 - INFO - Processando producao_origem_destino_2019.csv | mes_ano detectado: ['2019-01-01' '2019-02-01' '2019-03-01' '2019-04-01' '2019-05-01'
- '2019-06-01' '2019-07-01' '2019-08-01' '2019-09-01' '2019-10-01'
- '2019-11-01' '2019-12-01']
-2025-05-21 15:57:57,292 - INFO - Processando producao_origem_destino_2020.csv | mes_ano detectado: ['2020-01-01' '2020-02-01' '2020-03-01' '2020-04-01' '2020-05-01'
- '2020-06-01' '2020-07-01' '2020-08-01' '2020-09-01' '2020-10-01'
- '2020-11-01' '2020-12-01']
-2025-05-21 15:57:57,331 - INFO - Processando producao_origem_destino_2021.csv | mes_ano detectado: ['2021-01-01' '2021-02-01' '2021-03-01' '2021-04-01' '2021-05-01'
- '2021-06-01' '2021-07-01' '2021-08-01' '2021-09-01' '2021-10-01'
- '2021-11-01' '2021-12-01']
-2025-05-21 15:57:57,370 - INFO - Processando producao_origem_destino_2022.csv | mes_ano detectado: ['2022-01-01' '2022-02-01' '2022-03-01' '2022-04-01' '2022-05-01'
- '2022-06-01' '2022-07-01' '2022-08-01' '2022-09-01' '2022-10-01'
- '2022-11-01' '2022-12-01']
-2025-05-21 15:57:57,406 - INFO - Processando producao_origem_destino_2023.csv | mes_ano detectado: ['2023-01-01' '2023-02-01' '2023-03-01' '2023-04-01' '2023-05-01'
- '2023-06-01' '2023-07-01' '2023-08-01' '2023-09-01' '2023-10-01'
- '2023-11-01' '2023-12-01']
-2025-05-21 15:57:57,444 - INFO - Processando producao_origem_destino_2024.csv | mes_ano detectado: ['2024-01-01' '2024-02-01' '2024-03-01' '2024-04-01' '2024-05-01'
- '2024-06-01' '2024-07-01' '2024-08-01' '2024-09-01' '2024-10-01'
- '2024-11-01' '2024-12-01']
-2025-05-21 15:57:57,474 - INFO - Processando producao_origem_destino_2025.csv | mes_ano detectado: ['2025-01-01' '2025-02-01' '2025-03-01']
-2025-05-21 15:58:13,311 - INFO - 🚀 Iniciando pipeline de ferrovias ANTT...
-2025-05-21 15:58:13,311 - INFO - Processando arquivos do ano mais recente: 2025
-2025-05-21 15:58:13,383 - INFO - Arquivo processado com sucesso: data/processed/antt_ferrovias/arquivos/producao_origem_destino_2025.csv
-2025-05-21 15:58:13,571 - INFO - Arquivo consolidado carregado: data/processed/antt_ferrovias/railway_table.csv
-2025-05-21 15:58:13,582 - INFO - Processando producao_origem_destino_2006.csv | mes_ano detectado: ['2006-01-01' '2006-02-01' '2006-03-01' '2006-04-01' '2006-05-01'
- '2006-06-01' '2006-07-01' '2006-08-01' '2006-09-01' '2006-10-01'
- '2006-11-01' '2006-12-01']
-2025-05-21 15:58:13,623 - INFO - Processando producao_origem_destino_2007.csv | mes_ano detectado: ['2007-01-01' '2007-02-01' '2007-03-01' '2007-04-01' '2007-05-01'
- '2007-06-01' '2007-07-01' '2007-08-01' '2007-09-01' '2007-10-01'
- '2007-11-01' '2007-12-01']
-2025-05-21 15:58:13,666 - INFO - Processando producao_origem_destino_2008.csv | mes_ano detectado: ['2008-01-01' '2008-02-01' '2008-03-01' '2008-04-01' '2008-05-01'
- '2008-06-01' '2008-07-01' '2008-08-01' '2008-09-01' '2008-10-01'
- '2008-11-01' '2008-12-01']
-2025-05-21 15:58:13,710 - INFO - Processando producao_origem_destino_2009.csv | mes_ano detectado: ['2009-01-01' '2009-02-01' '2009-03-01' '2009-04-01' '2009-05-01'
- '2009-06-01' '2009-07-01' '2009-08-01' '2009-09-01' '2009-10-01'
- '2009-11-01' '2009-12-01']
-2025-05-21 15:58:13,750 - INFO - Processando producao_origem_destino_2010.csv | mes_ano detectado: ['2010-01-01' '2010-02-01' '2010-03-01' '2010-04-01' '2010-05-01'
- '2010-06-01' '2010-07-01' '2010-08-01' '2010-09-01' '2010-10-01'
- '2010-11-01' '2010-12-01']
-2025-05-21 15:58:13,787 - INFO - Processando producao_origem_destino_2011.csv | mes_ano detectado: ['2011-01-01' '2011-02-01' '2011-03-01' '2011-04-01' '2011-05-01'
- '2011-06-01' '2011-07-01' '2011-08-01' '2011-09-01' '2011-10-01'
- '2011-11-01' '2011-12-01']
-2025-05-21 15:58:13,832 - INFO - Processando producao_origem_destino_2012.csv | mes_ano detectado: ['2012-01-01' '2012-02-01' '2012-03-01' '2012-04-01' '2012-05-01'
- '2012-06-01' '2012-07-01' '2012-08-01' '2012-09-01' '2012-10-01'
- '2012-11-01' '2012-12-01']
-2025-05-21 15:58:13,868 - INFO - Processando producao_origem_destino_2013.csv | mes_ano detectado: ['2013-01-01' '2013-02-01' '2013-03-01' '2013-04-01' '2013-05-01'
- '2013-06-01' '2013-07-01' '2013-08-01' '2013-09-01' '2013-10-01'
- '2013-11-01' '2013-12-01']
-2025-05-21 15:58:13,901 - INFO - Processando producao_origem_destino_2014.csv | mes_ano detectado: ['2014-01-01' '2014-02-01' '2014-03-01' '2014-04-01' '2014-05-01'
- '2014-06-01' '2014-07-01' '2014-08-01' '2014-09-01' '2014-10-01'
- '2014-11-01' '2014-12-01']
-2025-05-21 15:58:13,938 - INFO - Processando producao_origem_destino_2015.csv | mes_ano detectado: ['2015-01-01' '2015-02-01' '2015-03-01' '2015-04-01' '2015-05-01'
- '2015-06-01' '2015-07-01' '2015-08-01' '2015-09-01' '2015-10-01'
- '2015-11-01' '2015-12-01']
-2025-05-21 15:58:13,975 - INFO - Processando producao_origem_destino_2016.csv | mes_ano detectado: ['2016-01-01' '2016-02-01' '2016-03-01' '2016-04-01' '2016-05-01'
- '2016-06-01' '2016-07-01' '2016-08-01' '2016-09-01' '2016-10-01'
- '2016-11-01' '2016-12-01']
-2025-05-21 15:58:14,009 - INFO - Processando producao_origem_destino_2017.csv | mes_ano detectado: ['2017-01-01' '2017-02-01' '2017-03-01' '2017-04-01' '2017-05-01'
- '2017-06-01' '2017-07-01' '2017-08-01' '2017-09-01' '2017-10-01'
- '2017-11-01' '2017-12-01']
-2025-05-21 15:58:14,053 - INFO - Processando producao_origem_destino_2018.csv | mes_ano detectado: ['2018-01-01' '2018-02-01' '2018-03-01' '2018-04-01' '2018-05-01'
- '2018-06-01' '2018-07-01' '2018-08-01' '2018-09-01' '2018-10-01'
- '2018-11-01' '2018-12-01']
-2025-05-21 15:58:14,099 - INFO - Processando producao_origem_destino_2019.csv | mes_ano detectado: ['2019-01-01' '2019-02-01' '2019-03-01' '2019-04-01' '2019-05-01'
- '2019-06-01' '2019-07-01' '2019-08-01' '2019-09-01' '2019-10-01'
- '2019-11-01' '2019-12-01']
-2025-05-21 15:58:14,140 - INFO - Processando producao_origem_destino_2020.csv | mes_ano detectado: ['2020-01-01' '2020-02-01' '2020-03-01' '2020-04-01' '2020-05-01'
- '2020-06-01' '2020-07-01' '2020-08-01' '2020-09-01' '2020-10-01'
- '2020-11-01' '2020-12-01']
-2025-05-21 15:58:14,179 - INFO - Processando producao_origem_destino_2021.csv | mes_ano detectado: ['2021-01-01' '2021-02-01' '2021-03-01' '2021-04-01' '2021-05-01'
- '2021-06-01' '2021-07-01' '2021-08-01' '2021-09-01' '2021-10-01'
- '2021-11-01' '2021-12-01']
-2025-05-21 15:58:14,217 - INFO - Processando producao_origem_destino_2022.csv | mes_ano detectado: ['2022-01-01' '2022-02-01' '2022-03-01' '2022-04-01' '2022-05-01'
- '2022-06-01' '2022-07-01' '2022-08-01' '2022-09-01' '2022-10-01'
- '2022-11-01' '2022-12-01']
-2025-05-21 15:58:14,250 - INFO - Processando producao_origem_destino_2023.csv | mes_ano detectado: ['2023-01-01' '2023-02-01' '2023-03-01' '2023-04-01' '2023-05-01'
- '2023-06-01' '2023-07-01' '2023-08-01' '2023-09-01' '2023-10-01'
- '2023-11-01' '2023-12-01']
-2025-05-21 15:58:14,288 - INFO - Processando producao_origem_destino_2024.csv | mes_ano detectado: ['2024-01-01' '2024-02-01' '2024-03-01' '2024-04-01' '2024-05-01'
- '2024-06-01' '2024-07-01' '2024-08-01' '2024-09-01' '2024-10-01'
- '2024-11-01' '2024-12-01']
-2025-05-21 15:58:14,320 - INFO - Processando producao_origem_destino_2025.csv | mes_ano detectado: ['2025-01-01' '2025-02-01' '2025-03-01']
-2025-05-21 15:58:14,952 - INFO - Arquivo consolidado atualizado: data/processed/antt_ferrovias/railway_table.csv
-2025-05-21 15:58:14,955 - INFO - ✅ Pipeline concluída com sucesso.
-2025-05-21 16:37:05,122 - INFO - Iniciando pipeline de ferrovias ANTT...
-2025-05-21 16:37:05,264 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-21 16:37:05,264 - INFO - Processando arquivos do ano mais recente: 2025
-2025-05-21 16:37:05,328 - INFO - Arquivo processado com sucesso: data/processed/antt_ferrovias/arquivos/producao_origem_destino_2025.csv
-2025-05-21 16:37:05,486 - INFO - Arquivo consolidado carregado: data/processed/antt_ferrovias/railway_table.csv
-2025-05-21 16:37:06,618 - INFO - Arquivo consolidado atualizado: data/processed/antt_ferrovias/railway_table.csv
-2025-05-21 16:37:06,620 - INFO - ✅ Pipeline de ferrovias ANTT concluída com sucesso.
-2025-05-21 16:37:06,621 - INFO - --------------------------------------------------
-2025-05-21 18:10:15,682 - INFO - Iniciando pipeline de ferrovias ANTT...
-2025-05-21 18:10:15,823 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-21 18:10:15,823 - WARNING - Pipeline execution stopped due failure on extraction
-2025-05-22 15:13:43,771 - INFO - Initiating toll volume from ANTT...
-2025-05-22 15:13:44,445 - ERROR - EXTRACTION FAILED to retrieve json: Expecting value: line 1 column 1 (char 0)
-2025-05-22 15:13:44,445 - WARNING - ⚠️ Pipeline execution stopped due failure on extraction
-2025-05-23 13:17:43,051 - INFO - Data retrieved succesfuly! File saved: data/raw/raw_meugov/energy/consumo_energia_eletrica_nacional.xlsx
-2025-05-23 13:17:43,053 - INFO - __________________________________________________
-2025-05-23 13:17:48,702 - ERROR - 🚫 General Error in transformation: When drop_invalid_rows is True, lazy must be set to True.
-2025-05-23 13:17:49,619 - ERROR - 🚫 General Error in transformation: When drop_invalid_rows is True, lazy must be set to True.
-2025-05-23 13:18:37,152 - INFO - File saved successfully at data/processed/energy/consumo_setor_industrial_uf.csv
-2025-05-23 13:18:38,128 - ERROR - 🚫 General Error in transformation: string indices must be integers, not 'str'
-2025-05-23 13:30:17,552 - ERROR - 🚫 General Error in transformation: [Errno 2] No such file or directory: 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
-2025-05-23 13:30:36,915 - ERROR - 🚫 General Error in transformation: [Errno 2] No such file or directory: 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
-2025-05-23 13:31:29,788 - ERROR - 🚫 General Error in transformation: [Errno 2] No such file or directory: 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
-2025-05-23 13:31:29,788 - ERROR - 🚫 General Error in transformation: [Errno 2] No such file or directory: 'data/raw/raw_meugov/energy/Dados_abertos_Consumo_Mensal.xlsx'
-2025-05-23 13:32:12,933 - INFO - File saved successfully at data/processed/energy/consumo_setor_industrial_uf.csv
-2025-05-23 13:32:13,840 - ERROR - 🚫 General Error in transformation: string indices must be integers, not 'str'
-2025-05-23 13:34:48,440 - INFO - File saved successfully at data/processed/energy/consumo_uf.csv
-2025-05-23 13:34:54,700 - INFO - File saved successfully at data/processed/energy/consumo_setor_industrial_uf.csv
-2025-05-23 15:01:05,873 - INFO - Initiating fuel prices pipeline...
-2025-05-23 15:01:06,048 - INFO - Data retrieved succesfuly! File saved: data/raw/raw_meugov/energy/fuel_prices.xlsx
-2025-05-23 15:01:06,048 - INFO - __________________________________________________
-2025-05-23 15:02:42,706 - INFO - Initiating fuel prices pipeline...
-2025-05-23 15:02:42,878 - INFO - Data retrieved succesfuly! File saved: data/raw/raw_meugov/energy/fuel_prices.xlsx
-2025-05-23 15:02:42,878 - INFO - __________________________________________________
-2025-05-23 15:03:29,107 - INFO - Initiating fuel prices pipeline...
-2025-05-23 15:03:29,294 - INFO - Data retrieved succesfuly! File saved: data/raw/raw_meugov/fuel/fuel_prices.xlsx
-2025-05-23 15:03:29,295 - INFO - __________________________________________________
-2025-05-23 15:03:29,478 - INFO - ✅ Fuel Prices pipeline completed!
-2025-05-23 15:03:29,478 - INFO - --------------------------------------------------
+2025-05-27 19:49:04,641 - INFO - Initiating Energy Usage pipeline from EPE..
+2025-05-27 19:49:05,867 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_meugov/energy/consumo_energia_eletrica_nacional.xlsx
+2025-05-27 19:49:09,744 - INFO - File saved successfully at data/processed/energy/consumo_uf.csv
+2025-05-27 19:49:16,107 - INFO - File saved successfully at: data/processed/energy/consumo_setor_industrial_uf.csv
+2025-05-27 19:49:16,111 - INFO - ✅ Energy Consumption pipeline completed!
+2025-05-27 19:49:16,111 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-27 19:49:16,111 - INFO - Initiating Fuel Prices pipeline from ANP...
+2025-05-27 19:49:16,332 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_meugov/fuel/fuel_prices.xlsx
+2025-05-27 19:49:16,462 - INFO - File saved successfully at: data/processed/energy/fuels_prices.csv
+2025-05-27 19:49:16,462 - INFO - ✅ Fuel Prices pipeline completed!
+2025-05-27 19:49:16,462 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-27 19:49:16,462 - INFO - Initiating Railway Cargo pipeline from ANTT...
+2025-05-27 19:49:16,588 - ERROR - 🚫 EXTRACTION failed to retrieve json: Expecting value: line 1 column 1 (char 0)
+2025-05-27 19:49:16,588 - WARNING - ⚠️  Pipeline execution stopped due failure on extraction
+2025-05-27 19:49:16,589 - INFO - ✅ Railway cargo ANTT pipeline completed!
+2025-05-27 19:49:16,589 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-27 19:49:16,589 - INFO - Initiating Toll Volume pipeline from ANTT..
+2025-05-27 19:49:16,727 - ERROR - 🚫 EXTRACTION failed to retrieve json: Expecting value: line 1 column 1 (char 0)
+2025-05-27 19:49:16,728 - WARNING - ⚠️  Pipeline execution stopped due failure on extraction
+2025-05-27 19:49:16,728 - INFO - ✅ Toll volume ANTT pipeline completed!
+2025-05-27 19:49:16,728 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-27 19:49:16,729 - INFO - Initiating Bitcoin pipeline from Investidor10...
+2025-05-27 19:49:16,868 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_bitcoin/bitcoin_2025-05-27.json
+2025-05-27 19:49:16,928 - INFO - File saved successfully at: /media/lucas/Files/2.Projetos/the-compass/data/processed/bitcoin/bitcoin.csv
+2025-05-27 19:49:16,929 - INFO - ✅ Bitcoin pipeline completed!
+2025-05-27 19:49:16,929 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-27 19:49:16,929 - INFO - Initiating Fecomercio Index pipeline from Fecomercio...
+2025-05-27 19:49:57,575 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/cvcs/cvcs_link_download_mar25.xlsx
+2025-05-27 19:49:57,575 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/iestoques/estoques_link_download_202504.xlsx
+2025-05-27 19:49:57,575 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/icc/icc_link_download_202504.xlsx
+2025-05-27 19:49:57,576 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/icec/icec_link_download_202504.xlsx
+2025-05-27 19:49:57,576 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/iec/iec_link_download_202504.xlsx
+2025-05-27 19:49:57,576 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/ipv/ipv_link_download_mar25.xlsx
+2025-05-27 19:49:57,576 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/pccv/pccv_link_download_02_2025.xlsx
+2025-05-27 19:49:57,577 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/peic/peic_link_download_202503.xlsx
+2025-05-27 19:49:57,639 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-27 19:49:57,674 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-27 19:49:57,798 - INFO - ICEC dataframe converted to csv succesfuly
+2025-05-27 19:49:57,826 - INFO - iestoques dataframe converted to csv succesfuly
+2025-05-27 19:49:57,853 - INFO - ECSP dataframe converted to csv succesfuly
+2025-05-27 19:49:57,896 - INFO - PCCV dataframe converted to csv succesfuly
+2025-05-27 19:49:57,921 - INFO - CVCS dataframe converted to csv succesfuly
+2025-05-27 19:49:57,948 - INFO - IPV dataframe converted to csv succesfuly
+2025-05-27 19:49:57,976 - INFO - IPS dataframe converted to csv succesfuly
+2025-05-27 19:49:57,976 - INFO - ✅ Fuel Prices pipeline completed!
+2025-05-27 19:49:57,976 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-27 19:49:57,976 - INFO - Initiating Future Interests pipeline from Infomoney...
+2025-05-27 19:50:02,850 - INFO - Data retrieved succesfuly! File saved:data/raw/raw_interest_rates/juros_futuros_2025-05-27.json
+2025-05-27 19:50:02,864 - INFO - ✅ Future Interests Infomoney pipeline completed!
+2025-05-27 19:50:02,864 - INFO - ----------------------------------------------------------------------------------------------------

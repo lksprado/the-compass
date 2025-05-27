@@ -23,6 +23,21 @@ def get_local_chrome_version():
     major_version = version.split(".")[0]
     return int(major_version)
 
+def get_local_browser_version():
+    """Retorna a versão principal do Google Chrome instalado na máquina."""
+    try:
+        output = subprocess.check_output(["google-chrome", "--version"]).decode("utf-8")
+        # Exemplo de output: 'Google Chrome 136.0.7103.113\n'
+        version = output.strip().split()[-1]  # Pega '136.0.7103.113'
+        major_version = version.split(".")[0]  # Pega '136'
+        return int(major_version)
+    except subprocess.CalledProcessError as e:
+        print(f"Erro ao obter a versão do Chrome: {e}")
+        return None
+    except FileNotFoundError:
+        print("Google Chrome não encontrado. Verifique se está instalado e no PATH.")
+        return None
+
 def get_latest_release_version():
     """VERIFICA VERSAO ATUAL DO CHROMEDRIVER NO REPOSITORIO GOOGLE"""
     url = 'https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json'
@@ -86,7 +101,6 @@ def get_indices(urls:list):
     
     for url in urls:
         try:
-            print(f"Requesting {url}...")
             driver.get(url)
             time.sleep(3)
             download_link = driver.find_element(
@@ -103,17 +117,13 @@ def get_indices(urls:list):
             start_time = time.time()
             while time.time() - start_time < timeout:
                 if any(f.endswith(".xlsx") for f in os.listdir(download_dir)):
-                    logger.info(f"Data retrieved succesfuly! {file_name}")
-                    logger.info('-'*50)
                     break
                 time.sleep(1)
             else:
                 logger.warning("Wait timing expired. Download couldn't be finished, increase timeout.")
-                logger.warning('-'*50)
 
         except Exception as e:
-            logger.error(f"Something went wrong: {str(e)}")
-            logger.error('-'*50)
+            logger.error(f"Something went wrong: {e} -- {url}")
 
     driver.quit()
 
