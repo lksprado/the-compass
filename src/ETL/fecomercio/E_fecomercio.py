@@ -54,18 +54,14 @@ def check_versions(local:int,release:tuple):
     release_major = release[0]
     release_number = release[1]
     if release_major > local:
-
         base_url = f"https://storage.googleapis.com/chrome-for-testing-public/{release_number}/linux64/chromedriver-linux64.zip"
-
         print(f"Baixando ChromeDriver versão {release}...")
         zip_path = "/tmp/chromedriver.zip"
         r = requests.get(base_url, stream=True)
         with open(zip_path, 'wb') as f:
             f.write(r.content)
-
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall("/tmp/chromedriver_extracted")
-
         os.makedirs(CHROMEDRIVER_DIR, exist_ok=True)
         shutil.move("/tmp/chromedriver_extracted/chromedriver-linux64/chromedriver", CHROMEDRIVER_PATH)
         os.chmod(CHROMEDRIVER_PATH, 0o755)
@@ -77,17 +73,14 @@ def check_versions(local:int,release:tuple):
 def get_indices(urls:list):
     """BAIXA ARQUIVOS DAS URLS"""
     chromedriver_path = "/home/lucas/.cache/selenium/chromedriver/linux64/chromedriver"
-
     download_dir = "/media/lucas/Files/2.Projetos/the-compass/data/raw/raw_fecomercio"
     if not os.path.exists(download_dir):
         os.makedirs(download_dir)
-
     chrome_options = Options()
     chrome_options.add_argument("--headless")  
     chrome_options.add_argument("--disable-gpu")  
     chrome_options.add_argument("--no-sandbox")  
     chrome_options.add_argument("--disable-dev-shm-usage") 
-
     prefs = {
         "download.default_directory": download_dir,
         "download.prompt_for_download": False,
@@ -96,9 +89,7 @@ def get_indices(urls:list):
     }
     chrome_options.add_experimental_option("prefs", prefs)
     service = Service(chromedriver_path)
-
     driver = webdriver.Chrome(service=service, options=chrome_options)  # Passar chrome_options
-    
     for url in urls:
         try:
             driver.get(url)
@@ -107,12 +98,9 @@ def get_indices(urls:list):
                 By.XPATH, 
                 "//a[contains(@class, 'download')]"
             )
-            
             file_url = download_link.get_attribute("href")
             file_name = file_url.split("/")[-1]  
-            
             download_link.click()
-            
             timeout = 10  
             start_time = time.time()
             while time.time() - start_time < timeout:
@@ -121,7 +109,6 @@ def get_indices(urls:list):
                 time.sleep(1)
             else:
                 logger.warning("Wait timing expired. Download couldn't be finished, increase timeout.")
-
         except Exception as e:
             logger.error(f"Something went wrong: {e} -- {url}")
 

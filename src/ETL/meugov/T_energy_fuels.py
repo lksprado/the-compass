@@ -24,7 +24,7 @@ def make_energy_df(sheet, output_name, file_path, output_path):
             df = df.drop(columns=['dataexcel', 'dataversao'])
             object_cols = df.select_dtypes(include='object').columns
             df[object_cols] = df[object_cols].apply(lambda x: x.str.lower())
-            df.rename(columns={'consumo':'consumo_mwh'},inplace=True)
+            df.rename(columns={'data':'mes_ano','consumo':'consumo_mwh'},inplace=True)
             df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
             logger.info(f"File saved successfully at {output_path}/{output_name}.csv")
         elif sheet == 'SETOR INDUSTRIAL POR UF':
@@ -34,7 +34,7 @@ def make_energy_df(sheet, output_name, file_path, output_path):
             df = df.drop(columns=['dataexcel', 'dataversao'])
             object_cols = df.select_dtypes(include='object').columns
             df[object_cols] = df[object_cols].apply(lambda x: x.str.lower())
-            df.rename(columns={'consumo':'consumo_mwh'},inplace=True)
+            df.rename(columns={'data':'mes_ano','consumo':'consumo_mwh'},inplace=True)
             df.to_csv(f"{output_path}/{output_name}.csv", index=False, sep=';')
             logger.info(f"File saved successfully at: {output_path}/{output_name}.csv")
 

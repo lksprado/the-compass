@@ -56,7 +56,7 @@ def indice_confianca_consumidor():
         try:
             df = pd.read_excel(file_path,header=1, sheet_name='SÉRIE')
             df = sanitize_column_names(df)
-            df = df.rename(columns={ 
+            df = df.rename(columns={ 'mes':'mes_ano',
                                     'icc':'icc_indice_confianca_consumidor',
                                     'icc__de_10_SM':'icc_indice_confianca_consumidor_acima_10_sm',
                                     'icea':'icea_indice_condicoes_economicas_atuais',
@@ -86,6 +86,7 @@ def indice_endividamento_inadimplencia():
             df = df.drop(columns=['endividadas_1','contas_em_atraso_1', 'nao_terao_condicoes_de_pagar_1'])
             df['mes'] = pd.to_datetime(df['mes'], errors='coerce').dt.date
             df = df.rename(columns={
+                'mes':'mes_ano',
                 'endividadas':'peic_indice_endividamento',
                 'contas_em_atraso':'peic_indice_contas_em_atraso',
                 'nao_terao_condicoes_de_pagar':'peic_indice_sem_condicoes_de_pagar'
@@ -115,6 +116,7 @@ def indice_confianca_empresario_comercial():
             df = df.dropna(subset=['mes'])
             df = sanitize_column_names(df)
             df = df.rename(columns={
+                'mes':'mes_ano',
                 'condicoes_atuais_da_economia_cae':'cae_indice_condicoes_atuais_da_economia',
                 'condicoes_atuais_das_empresas_comerciais_caec':'caec_indice_condicoes_atuais_das_empresas_comerciais',
                 'condicoes_atuais_do_comercio_cac':'cac_condicoes_atuais_do_comercio',
@@ -152,6 +154,7 @@ def estoques():
             df = df.dropna(subset=['mes'])
             df = sanitize_column_names(df)
             df = df.rename(columns={
+                'mes':'mes_ano',
                 'situacao_adequada':'indice_estoques_situacao_adequada',
                 'situacao_inadequada_abaixo':'indice_estoques_situacao_inadequada_abaixo',
                 'situacao_inadequada_acima':'indice_estoques_situacao_inadequada_acima',
@@ -182,6 +185,7 @@ def indice_expansao_comercio_sp():
             df = df.dropna(subset=['mes'])
             df = sanitize_column_names(df)
             df = df.rename(columns={
+                'mes':'mes_ano',
                 'expectativas_para_contratacao_de_funcionarios':'indice_expectativas_para_contratacao_de_funcionarios',
                 'nivel_de_investimento_das_empresas':'indice_nivel_de_investimento_das_empresas',
                 'indice_de_expansao_do_comercio_iec':'iec_indice_de_expansao_do_comercio'
@@ -208,6 +212,7 @@ def pesquisa_conjuntural_comercio_varejista():
             df = df.pivot(index='mes', columns='comercio', values='valor').reset_index()
             df = sanitize_column_names(df)
             df = df.rename(columns={
+                'mes':'mes_ano',
                 'autopecas_e_acessorios':'faturamento_autopecas_e_acessorios',
                 'concessionarias_de_veiculos':'faturamento_concessionarias_de_veiculos',
                 'eletrodomesticos_eletronicos_e_ld':'faturamento_eletrodomesticos_eletronicos_e_ld',
@@ -238,6 +243,7 @@ def indice_custo_vida():
             df = df.drop(df.columns[0],axis=1)
             df['mes'] = pd.to_datetime(df['mes'], errors='coerce').dt.date
             df = sanitize_column_names(df)
+            df.rename(columns={'mes':'mes_ano','custo_de_vida':'cvcs_indice_custo_de_vida'},inplace=True)
             df.to_csv('data/processed/fecomercio/custo_de_vida.csv',index=False, sep=';')
             logger.info("CVCS dataframe converted to csv succesfuly")
         except Exception as e:
@@ -257,6 +263,7 @@ def indice_preco_varejo():
             df = df.drop(df.columns[0],axis=1)
             df['mes'] = pd.to_datetime(df['mes'], errors='coerce').dt.date
             df = sanitize_column_names(df)
+            df.rename(columns={'mes':'mes_ano'},inplace=True)
             df.to_csv('data/processed/fecomercio/indice_preco_varejo.csv',index=False, sep=';')
             logger.info("IPV dataframe converted to csv succesfuly")
         except Exception as e:
@@ -278,6 +285,7 @@ def indice_preco_servicos():
             df = df.dropna(subset=['ips'])
             df['mes'] = pd.to_datetime(df['mes'], errors='coerce').dt.date
             df = sanitize_column_names(df)
+            df.rename(columns={'mes':'mes_ano'},inplace=True)
             df.to_csv('data/processed/fecomercio/indice_preco_servicos.csv',index=False,sep=';')
             logger.info("IPS dataframe converted to csv succesfuly")
         except Exception as e:

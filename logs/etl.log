@@ -48,3 +48,53 @@
 2025-05-27 19:50:02,850 - INFO - Data retrieved succesfuly! File saved:data/raw/raw_interest_rates/juros_futuros_2025-05-27.json
 2025-05-27 19:50:02,864 - INFO - ✅ Future Interests Infomoney pipeline completed!
 2025-05-27 19:50:02,864 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-28 22:46:37,733 - INFO - Initiating Energy Usage pipeline from EPE..
+2025-05-28 22:46:38,533 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_meugov/energy/consumo_energia_eletrica_nacional.xlsx
+2025-05-28 22:46:42,166 - INFO - File saved successfully at data/processed/energy/consumo_uf.csv
+2025-05-28 22:46:48,595 - INFO - File saved successfully at: data/processed/energy/consumo_setor_industrial_uf.csv
+2025-05-28 22:46:48,599 - INFO - ✅ Energy Consumption pipeline completed!
+2025-05-28 22:46:48,600 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-28 22:46:48,600 - INFO - Initiating Fuel Prices pipeline from ANP...
+2025-05-28 22:46:48,856 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_meugov/fuel/fuel_prices.xlsx
+2025-05-28 22:46:48,969 - INFO - File saved successfully at: data/processed/energy/fuels_prices.csv
+2025-05-28 22:46:48,969 - INFO - ✅ Fuel Prices pipeline completed!
+2025-05-28 22:46:48,969 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-28 22:46:48,969 - INFO - Initiating Railway Cargo pipeline from ANTT...
+2025-05-28 22:46:49,104 - ERROR - 🚫 EXTRACTION failed to retrieve json: Expecting value: line 1 column 1 (char 0)
+2025-05-28 22:46:49,105 - WARNING - ⚠️  Pipeline execution stopped due failure on extraction
+2025-05-28 22:46:49,105 - INFO - ✅ Railway cargo ANTT pipeline completed!
+2025-05-28 22:46:49,105 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-28 22:46:49,105 - INFO - Initiating Toll Volume pipeline from ANTT..
+2025-05-28 22:46:49,214 - ERROR - 🚫 EXTRACTION failed to retrieve json: Expecting value: line 1 column 1 (char 0)
+2025-05-28 22:46:49,214 - WARNING - ⚠️  Pipeline execution stopped due failure on extraction
+2025-05-28 22:46:49,214 - INFO - ✅ Toll volume ANTT pipeline completed!
+2025-05-28 22:46:49,214 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-28 22:46:49,215 - INFO - Initiating Bitcoin pipeline from Investidor10...
+2025-05-28 22:46:49,308 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_bitcoin/bitcoin_2025-05-28.json
+2025-05-28 22:46:49,376 - INFO - File saved successfully at: /media/lucas/Files/2.Projetos/the-compass/data/processed/bitcoin/bitcoin.csv
+2025-05-28 22:46:49,376 - INFO - ✅ Bitcoin pipeline completed!
+2025-05-28 22:46:49,376 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-28 22:46:49,376 - INFO - Initiating Fecomercio Index pipeline from Fecomercio...
+2025-05-28 22:47:29,748 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/cvcs/cvcs_link_download_mar25.xlsx
+2025-05-28 22:47:29,748 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/iestoques/estoques_link_download_202504.xlsx
+2025-05-28 22:47:29,749 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/icc/icc_link_download_202504.xlsx
+2025-05-28 22:47:29,749 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/icec/icec_link_download_202504.xlsx
+2025-05-28 22:47:29,749 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/iec/iec_link_download_202504.xlsx
+2025-05-28 22:47:29,749 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/ipv/ipv_link_download_mar25.xlsx
+2025-05-28 22:47:29,749 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/pccv/pccv_link_download_02_2025.xlsx
+2025-05-28 22:47:29,750 - INFO - Raw file retrieved succesfuly! Saved: data/raw/raw_fecomercio/peic/peic_link_download_202503.xlsx
+2025-05-28 22:47:29,811 - INFO - ICC dataframe converted to csv succesfuly
+2025-05-28 22:47:29,849 - INFO - PEIC dataframe converted to csv succesfuly
+2025-05-28 22:47:29,972 - INFO - ICEC dataframe converted to csv succesfuly
+2025-05-28 22:47:30,000 - INFO - iestoques dataframe converted to csv succesfuly
+2025-05-28 22:47:30,028 - INFO - ECSP dataframe converted to csv succesfuly
+2025-05-28 22:47:30,071 - INFO - PCCV dataframe converted to csv succesfuly
+2025-05-28 22:47:30,095 - INFO - CVCS dataframe converted to csv succesfuly
+2025-05-28 22:47:30,123 - INFO - IPV dataframe converted to csv succesfuly
+2025-05-28 22:47:30,151 - INFO - IPS dataframe converted to csv succesfuly
+2025-05-28 22:47:30,152 - INFO - ✅ Fecomercio Index pipeline completed!
+2025-05-28 22:47:30,152 - INFO - ----------------------------------------------------------------------------------------------------
+2025-05-28 22:47:30,152 - INFO - Initiating Future Interests pipeline from Infomoney...
+2025-05-28 22:47:33,355 - INFO - Data retrieved succesfuly! File saved:data/raw/raw_interest_rates/juros_futuros_2025-05-28.json
+2025-05-28 22:47:33,380 - INFO - ✅ Future Interests Infomoney pipeline completed!
+2025-05-28 22:47:33,380 - INFO - ----------------------------------------------------------------------------------------------------
