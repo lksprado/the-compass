@@ -56,11 +56,13 @@ def indice_confianca_consumidor():
         try:
             df = pd.read_excel(file_path,header=1, sheet_name='SÉRIE')
             df = sanitize_column_names(df)
-            df = df.rename(columns={ 'mes':'mes_ano',
+            df = df.rename(columns={'mes':'mes_ano',
                                     'icc':'icc_indice_confianca_consumidor',
-                                    'icc__de_10_SM':'icc_indice_confianca_consumidor_acima_10_sm',
+                                    'icc__de_10_SM':'icc_acima_10_sm',
                                     'icea':'icea_indice_condicoes_economicas_atuais',
-                                    'icea__de_10_SM':'icea_indice_condicoes_economicas_atuais_acima_10_sm'
+                                    'icea__de_10_SM':'icea_indice_condicoes_economicas_atuais_acima_10_sm',
+                                    'iec':'iec_indice_expectativa_consumidor',
+                                    'iec__de_10_SM':'icc_indice_expectativa_consumidor_acima_10_sm',
                                     })
             df.to_csv('data/processed/fecomercio/indice_confianca_consumidor.csv',index=False, sep=';')
             logger.info("ICC dataframe converted to csv succesfuly")
@@ -83,13 +85,14 @@ def indice_endividamento_inadimplencia():
             df = df.dropna(how='all')
             df = df.dropna(axis=1,how='all')
             df = sanitize_column_names(df)
-            df = df.drop(columns=['endividadas_1','contas_em_atraso_1', 'nao_terao_condicoes_de_pagar_1'])
+            df = df.drop(columns=['endividadas_1','contas_em_atraso_1', 'nao_terao_condicoes_de_pagar_1','ate_3_meses','de_3_a_6_meses','de_6_meses_a_1_ano','por_mais_de_1_ano'])
             df['mes'] = pd.to_datetime(df['mes'], errors='coerce').dt.date
             df = df.rename(columns={
                 'mes':'mes_ano',
                 'endividadas':'peic_indice_endividamento',
                 'contas_em_atraso':'peic_indice_contas_em_atraso',
                 'nao_terao_condicoes_de_pagar':'peic_indice_sem_condicoes_de_pagar'
+                
                 })
             df.to_csv('data/processed/fecomercio/indice_endividamento_inadimplencia.csv',index=False, sep=';')
             logger.info("PEIC dataframe converted to csv succesfuly")
@@ -186,9 +189,9 @@ def indice_expansao_comercio_sp():
             df = sanitize_column_names(df)
             df = df.rename(columns={
                 'mes':'mes_ano',
-                'expectativas_para_contratacao_de_funcionarios':'indice_expectativas_para_contratacao_de_funcionarios',
-                'nivel_de_investimento_das_empresas':'indice_nivel_de_investimento_das_empresas',
-                'indice_de_expansao_do_comercio_iec':'iec_indice_de_expansao_do_comercio'
+                'expectativas_para_contratacao_de_funcionarios':'iecsp_indice_expectativas_para_contratacao_de_funcionarios',
+                'nivel_de_investimento_das_empresas':'iecsp_indice_nivel_de_investimento_das_empresas',
+                'indice_de_expansao_do_comercio_iec':'iecsp_indice_de_expansao_do_comercio'
             })
             df.to_csv('data/processed/fecomercio/indice_expansao_comercio_sp.csv',index=False, sep=';')
             logger.info("ECSP dataframe converted to csv succesfuly")
@@ -215,7 +218,7 @@ def pesquisa_conjuntural_comercio_varejista():
                 'mes':'mes_ano',
                 'autopecas_e_acessorios':'faturamento_autopecas_e_acessorios',
                 'concessionarias_de_veiculos':'faturamento_concessionarias_de_veiculos',
-                'eletrodomesticos_eletronicos_e_ld':'faturamento_eletrodomesticos_eletronicos_e_ld',
+                'eletrodomesticos_eletronicos_e_l_d':'faturamento_eletrodomesticos_eletronicos_e_lojas_ddepartamento',
                 'farmacias_e_perfumarias':'faturamento_farmacias_e_perfumarias',
                 'lojas_de_moveis_e_decoracao':'faturamento_lojas_de_moveis_e_decoracao',
                 'lojas_de_vestuario_tecidos_e_calcados':'faturamento_lojas_de_vestuario_tecidos_e_calcados',
@@ -285,6 +288,7 @@ def indice_preco_servicos():
             df = df.dropna(subset=['ips'])
             df['mes'] = pd.to_datetime(df['mes'], errors='coerce').dt.date
             df = sanitize_column_names(df)
+            df.drop(columns=['ips'], inplace=True)
             df.rename(columns={'mes':'mes_ano'},inplace=True)
             df.to_csv('data/processed/fecomercio/indice_preco_servicos.csv',index=False,sep=';')
             logger.info("IPS dataframe converted to csv succesfuly")

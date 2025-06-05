@@ -116,12 +116,12 @@ def gather_all():
 
 
 if __name__ == '__main__':
-    # run_energy_pipeline()
-    # run_fuels_pipeline()
-    # run_railway_pipeline()
-    # run_tolls_pipeline()
-    # run_bitcoin_pipeline()
-    # run_fecomercio_pipeline()
-    # run_infomoney_pipeline()
+    run_energy_pipeline()
+    run_fuels_pipeline()
+    run_railway_pipeline()
+    run_tolls_pipeline()
+    run_bitcoin_pipeline()
+    run_fecomercio_pipeline()
+    run_infomoney_pipeline()
     final = gather_all()
-    final.to_csv('/media/lucas/Files/2.Projetos/the-compass/data/processed/final_df.csv',sep=';',index=False)
+    final.to_csv('/media/lucas/Files/2.Projetos/the-compass/final_df.csv',sep=';',index=False)
